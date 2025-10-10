@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Phone,
   Mail,
@@ -14,6 +14,8 @@ import {
   CheckCircle,
   MessageCircle,
 } from "lucide-react";
+
+import { motion } from "framer-motion";
 
 /**
  * Al Maghseel Central Air Conditioner Est. — One-page site
@@ -216,6 +218,30 @@ const SERVICES: Service[] = [
   },
 ];
 
+/** Animated Counter */
+function Counter({ target, duration = 1.2 }: { target: number; duration?: number }) {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    let start = 0;
+    const total = Math.max(1, Math.floor(duration * 60));
+    const step = () => {
+      start++;
+      const next = Math.round((start / total) * target);
+      setCount(Math.min(target, next));
+      if (start < total) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }, [target, duration]);
+  return <span>{count}</span>;
+}
+
+const fadeUp = {
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.2 },
+  transition: { duration: 0.6 },
+};
+
 function Header() {
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-white/80 backdrop-blur">
@@ -250,9 +276,12 @@ function Header() {
 
 function Hero() {
   return (
-    <section className="relative isolate overflow-hidden bg-gradient-to-br from-neutral-50 via-white to-red-50">
+    <motion.section
+      className="relative isolate overflow-hidden bg-gradient-to-br from-neutral-50 via-white to-red-50"
+      {...fadeUp}
+    >
       <div className="mx-auto max-w-7xl px-4 py-20 grid md:grid-cols-2 gap-10 items-center">
-        <div>
+        <motion.div {...fadeUp} transition={{ duration: 0.7 }}>
           <span className="inline-flex items-center gap-2 rounded-full bg-red-100 text-red-900 px-3 py-1 text-xs font-medium">
             Serving {COMPANY.region} · Since {COMPANY.since}
           </span>
@@ -260,20 +289,18 @@ function Hero() {
             Reliable Central A/C Services in <span className="text-red-800">{COMPANY.city}</span>
           </h1>
           <p className="mt-4 text-gray-700 leading-relaxed">
-            From new installations to emergency repairs, our expert team keeps your cooling system running at peak performance. {COMPANY.years}+ years of trusted service.
+            From new installations to emergency repairs, our expert team keeps your cooling system running at peak performance. <Counter target={COMPANY.years} />+ years of trusted service.
           </p>
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <a
               href={`tel:${COMPANY.phone}`}
-              className="inline-flex items-center gap-2 rounded-xl bg-red-800 text-white px-5 py-3 shadow hover:shadow-md"
+              className="inline-flex items-center gap-2 rounded-xl bg-red-800 text-white px-5 py-3 shadow hover:shadow-md active:scale-[0.99] transition"
             >
               <Phone className="w-4 h-4" /> Call {COMPANY.phone}
             </a>
             <a
-              href={`https://wa.me/${COMPANY.whatsappDigits}?text=${encodeURIComponent(
-                `Hello Al Maghseel, ${COMPANY.cta}`
-              )}`}
-              className="inline-flex items-center gap-2 rounded-xl border border-red-800 text-red-800 px-5 py-3 hover:bg-red-50"
+              href={`https://wa.me/${COMPANY.whatsappDigits}?text=${encodeURIComponent(`Hello Al Maghseel, ${COMPANY.cta}`)}`}
+              className="inline-flex items-center gap-2 rounded-xl border border-red-800 text-red-800 px-5 py-3 hover:bg-red-50 active:scale-[0.99] transition"
             >
               <MessageCircle className="w-4 h-4" /> {COMPANY.cta}
             </a>
@@ -283,8 +310,8 @@ function Hero() {
             <div className="flex items-center gap-2"><Clock className="w-4 h-4" /> Fast Response</div>
             <div className="flex items-center gap-2"><Wrench className="w-4 h-4" /> Genuine Parts</div>
           </div>
-        </div>
-                <div className="relative">
+        </motion.div>
+        <motion.div className="relative" {...fadeUp} transition={{ duration: 0.8, delay: 0.1 }}>
           <div className="w-full grid place-items-center p-4">
             <img
               src="/logo-al-maghseel.PNG"
@@ -292,9 +319,9 @@ function Hero() {
               className="mx-auto w-56 md:w-72 lg:w-96 object-contain rounded-3xl shadow"
             />
           </div>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }
 
@@ -302,15 +329,18 @@ function Services() {
   return (
     <section id="services" className="bg-white">
       <div className="mx-auto max-w-7xl px-4 py-16">
-        <h2 className="text-3xl md:text-4xl font-bold">Our Services</h2>
-        <p className="mt-2 text-gray-700">End-to-end A/C solutions across the UAE.</p>
-
+        <motion.h2 className="text-3xl md:text-4xl font-bold" {...fadeUp}>Our Services</motion.h2>
+        <motion.p className="mt-2 text-gray-700" {...fadeUp} transition={{ delay: 0.05 }}>End-to-end A/C solutions across the UAE.</motion.p>
         <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {SERVICES.map((s, i) => (
-            <div
+            <motion.div
               key={i}
               data-testid="service-card"
               className="group rounded-2xl border bg-white p-6 shadow-sm hover:shadow-md transition"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.45, delay: i * 0.04 }}
             >
               <div className="flex items-center gap-3">
                 <div className="rounded-xl bg-red-50 text-red-900 p-2">{s.icon}</div>
@@ -327,15 +357,13 @@ function Services() {
               </ul>
               <div className="mt-5">
                 <a
-                  href={`https://wa.me/${COMPANY.whatsappDigits}?text=${encodeURIComponent(
-                    `I am interested in: ${s.name}`
-                  )}`}
+                  href={`https://wa.me/${COMPANY.whatsappDigits}?text=${encodeURIComponent(`I am interested in: ${s.name}`)}`}
                   className="inline-flex items-center gap-1 text-red-800 font-medium hover:underline"
                 >
                   Request this service <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -345,22 +373,20 @@ function Services() {
 
 function About() {
   return (
-    <section id="about" className="bg-neutral-50">
+    <motion.section id="about" className="bg-neutral-50" {...fadeUp}>
       <div className="mx-auto max-w-7xl px-4 py-16 grid md:grid-cols-2 gap-10 items-center">
         <div className="order-2 md:order-1">
           <h2 className="text-3xl md:text-4xl font-bold">Why Choose Us</h2>
           <p className="mt-3 text-gray-700">
-            We are a locally trusted A/C specialist headquartered in {COMPANY.city}. For over {COMPANY.years} years, our technicians have supported homes, shops, and commercial spaces across {COMPANY.region}. We focus on safe installs, quick repairs, and honest advice.
+            We are a locally trusted A/C specialist headquartered in {COMPANY.city}. For over <Counter target={COMPANY.years} /> years, our technicians have supported homes, shops, and commercial spaces across {COMPANY.region}. We focus on safe installs, quick repairs, and honest advice.
           </p>
           <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
-            {["Certified technicians", "Fast on-site response", "Clear pricing, no surprises", "Genuine parts & warranty"].map(
-              (b, i) => (
-                <li key={i} className="flex items-center gap-2 bg-white border rounded-xl p-3">
-                  <CheckCircle className="w-4 h-4 text-red-700" />
-                  {b}
-                </li>
-              )
-            )}
+            {["Certified technicians", "Fast on-site response", "Clear pricing, no surprises", "Genuine parts & warranty"].map((b, i) => (
+              <li key={i} className="flex items-center gap-2 bg-white border rounded-xl p-3">
+                <CheckCircle className="w-4 h-4 text-red-700" />
+                {b}
+              </li>
+            ))}
           </ul>
         </div>
         <div className="order-1 md:order-2">
@@ -373,7 +399,7 @@ function About() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
 
@@ -391,16 +417,20 @@ function ServiceAreas() {
   return (
     <section id="areas" className="bg-white">
       <div className="mx-auto max-w-7xl px-4 py-16">
-        <h2 className="text-3xl md:text-4xl font-bold">Service Areas</h2>
-        <p className="mt-2 text-gray-700">We operate across the United Arab Emirates.</p>
+        <motion.h2 className="text-3xl md:text-4xl font-bold" {...fadeUp}>Service Areas</motion.h2>
+        <motion.p className="mt-2 text-gray-700" {...fadeUp}>We operate across the United Arab Emirates.</motion.p>
         <div className="mt-6 flex flex-wrap gap-2">
-          {areas.map((c) => (
-            <span
+          {areas.map((c, idx) => (
+            <motion.span
               key={c}
               className="px-3 py-1 rounded-full bg-red-50 text-red-900 border border-red-100 text-sm"
+              initial={{ opacity: 0, y: 8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.03 }}
             >
               {c}
-            </span>
+            </motion.span>
           ))}
         </div>
       </div>
@@ -410,29 +440,21 @@ function ServiceAreas() {
 
 function Contact() {
   return (
-    <section id="contact" className="bg-neutral-50">
+    <motion.section id="contact" className="bg-neutral-50" {...fadeUp}>
       <div className="mx-auto max-w-7xl px-4 py-16">
         <div className="grid lg:grid-cols-2 gap-10">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold">Contact Us</h2>
-            <p className="mt-2 text-gray-700">
-              Speak directly with a technician for quick help or a same-day quote.
-            </p>
+            <p className="mt-2 text-gray-700">Speak directly with a technician for quick help or a same-day quote.</p>
             <div className="mt-6 space-y-4">
-              <a
-                href={`tel:${COMPANY.phone}`}
-                className="flex items-center gap-3 p-4 rounded-xl bg-white border hover:shadow"
-              >
+              <a href={`tel:${COMPANY.phone}`} className="flex items-center gap-3 p-4 rounded-xl bg-white border hover:shadow">
                 <Phone className="w-5 h-5 text-red-800" />
                 <div>
                   <div className="font-medium">Call</div>
                   <div className="text-sm text-gray-700">{COMPANY.phone}</div>
                 </div>
               </a>
-              <a
-                href={`mailto:${COMPANY.email}`}
-                className="flex items-center gap-3 p-4 rounded-xl bg-white border hover:shadow"
-              >
+              <a href={`mailto:${COMPANY.email}`} className="flex items-center gap-3 p-4 rounded-xl bg-white border hover:shadow">
                 <Mail className="w-5 h-5 text-red-800" />
                 <div>
                   <div className="font-medium">Email</div>
@@ -443,50 +465,30 @@ function Contact() {
                 <MapPin className="w-5 h-5 text-red-800" />
                 <div>
                   <div className="font-medium">Location</div>
-                  <div className="text-sm text-gray-700">
-                    {COMPANY.city} · {COMPANY.region}
-                  </div>
+                  <div className="text-sm text-gray-700">{COMPANY.city} · {COMPANY.region}</div>
                 </div>
               </div>
               <div className="flex items-center gap-3 p-4 rounded-xl bg-white border">
                 <ShieldCheck className="w-5 h-5 text-red-800" />
                 <div>
                   <div className="font-medium">Years in Business</div>
-                  <div className="text-sm text-gray-700">
-                    {COMPANY.years} years (since {COMPANY.since})
-                  </div>
+                  <div className="text-sm text-gray-700"><Counter target={COMPANY.years} /> years (since {COMPANY.since})</div>
                 </div>
               </div>
               <div className="flex items-center gap-3 p-4 rounded-xl bg-white border">
                 <Facebook className="w-5 h-5 text-red-800" />
-                <a
-                  className="text-sm font-medium hover:underline"
-                  href={COMPANY.facebook}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Facebook
-                </a>
+                <a className="text-sm font-medium hover:underline" href={COMPANY.facebook} target="_blank" rel="noreferrer">Facebook</a>
               </div>
               <div className="flex items-center gap-3 p-4 rounded-xl bg-white border">
                 <Instagram className="w-5 h-5 text-red-800" />
-                <a
-                  className="text-sm font-medium hover:underline"
-                  href={COMPANY.instagram}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Instagram
-                </a>
+                <a className="text-sm font-medium hover:underline" href={COMPANY.instagram} target="_blank" rel="noreferrer">Instagram</a>
               </div>
             </div>
           </div>
           <div className="lg:pl-8">
             <div className="rounded-3xl bg-white border p-6 shadow-sm">
               <h3 className="text-xl font-semibold">Request a Quote</h3>
-              <p className="mt-1 text-sm text-gray-600">
-                Send us your details—expect a response within an hour.
-              </p>
+              <p className="mt-1 text-sm text-gray-600">Send us your details—expect a response within an hour.</p>
               <form
                 className="mt-4 grid gap-3"
                 onSubmit={(e) => {
@@ -497,17 +499,14 @@ function Contact() {
                   const service = (form.querySelector("#service") as HTMLInputElement).value;
                   const msg = `Hello Al Maghseel, I need help with ${service}. My name is ${name}. Phone: ${phone}.`;
                   if (typeof window !== "undefined") {
-                    window.open(
-                      `https://wa.me/${COMPANY.whatsappDigits}?text=${encodeURIComponent(msg)}`,
-                      "_blank"
-                    );
+                    window.open(`https://wa.me/${COMPANY.whatsappDigits}?text=${encodeURIComponent(msg)}`, "_blank");
                   }
                 }}
               >
                 <input id="name" className="w-full rounded-xl border px-4 py-3" placeholder="Your name" required />
                 <input id="phone" className="w-full rounded-xl border px-4 py-3" placeholder="Phone number" required />
                 <input id="service" className="w-full rounded-xl border px-4 py-3" placeholder="Service (e.g., Installation, Repair)" required />
-                <button className="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-red-800 text-white px-5 py-3 hover:shadow" type="submit">
+                <button className="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-red-800 text-white px-5 py-3 hover:shadow active:scale-[0.99]" type="submit">
                   <MessageCircle className="w-4 h-4" /> Send via WhatsApp
                 </button>
               </form>
@@ -515,7 +514,7 @@ function Contact() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
 
@@ -547,6 +546,22 @@ function WhatsAppFAB() {
     >
       <MessageCircle className="w-6 h-6" />
     </a>
+  );
+}
+
+/** Mobile Call/WhatsApp sticky bar */
+function MobileCallBar() {
+  return (
+    <div className="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur border-t md:hidden z-40">
+      <div className="max-w-7xl mx-auto px-4 py-3 grid grid-cols-2 gap-3">
+        <a href={`tel:${COMPANY.phone}`} className="inline-flex items-center justify-center gap-2 rounded-xl bg-red-800 text-white py-3 shadow active:scale-[0.99]">
+          <Phone className="w-4 h-4" /> Call
+        </a>
+        <a href={`https://wa.me/${COMPANY.whatsappDigits}?text=${encodeURIComponent("Hello Al Maghseel!")}`} className="inline-flex items-center justify-center gap-2 rounded-xl border border-red-800 text-red-800 py-3 active:scale-[0.99]">
+          <MessageCircle className="w-4 h-4" /> WhatsApp
+        </a>
+      </div>
+    </div>
   );
 }
 
@@ -619,6 +634,7 @@ export default function AlMaghseelSite() {
       <Contact />
       <Footer />
       <WhatsAppFAB />
+      <MobileCallBar />
       <SmokeTests />
     </main>
   );
