@@ -31,7 +31,7 @@ const COMPANY = {
   since: 2006,
   phone: "+971506734821",
   whatsappDigits: "00971506734821",
-  email: "maghseel1971@gmail.com",
+  email: "service@almaghseel.com",
   facebook:
     "https://www.facebook.com/p/Al-Maghseel-Central-Air-Conditioner-Est-100076006452976/",
   instagram: "https://www.instagram.com/maghseel/?hl=am-et",
@@ -275,18 +275,63 @@ function Header() {
 }
 
 function Hero() {
+  // Rotating locations & gradient overlay (no Arabic support)
+  const locations = [
+    "Al Ain",
+    "Abu Dhabi",
+    "Dubai",
+    "Sharjah",
+    "Ajman",
+    "Ras Al Khaimah",
+    "Umm Al Quwain",
+    "Fujairah",
+  ];
+  const [index, setIndex] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setIndex((p) => (p + 1) % locations.length), 2500);
+    return () => clearInterval(id);
+  }, []);
+
+  const gradients = [
+    "from-red-50 via-rose-50 to-red-100",
+    "from-amber-50 via-yellow-50 to-amber-100",
+    "from-rose-50 via-pink-50 to-rose-100",
+    "from-sky-50 via-blue-50 to-sky-100",
+    "from-emerald-50 via-teal-50 to-emerald-100",
+    "from-cyan-50 via-teal-50 to-cyan-100",
+    "from-violet-50 via-indigo-50 to-violet-100",
+  ];
+
   return (
     <motion.section
       className="relative isolate overflow-hidden bg-gradient-to-br from-neutral-50 via-white to-red-50"
       {...fadeUp}
     >
+      {/* Animated gradient overlay synced with rotating locations */}
+      <motion.div
+        key={index}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.75 }}
+        transition={{ duration: 0.6 }}
+        aria-hidden="true"
+        className={`pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br ${gradients[index]}`}
+      />
       <div className="mx-auto max-w-7xl px-4 py-20 grid md:grid-cols-2 gap-10 items-center">
         <motion.div {...fadeUp} transition={{ duration: 0.7 }}>
           <span className="inline-flex items-center gap-2 rounded-full bg-red-100 text-red-900 px-3 py-1 text-xs font-medium">
             Serving {COMPANY.region} · Since {COMPANY.since}
           </span>
           <h1 className="mt-4 text-4xl md:text-5xl font-extrabold tracking-tight">
-            Reliable Central A/C Services in <span className="text-red-800">{COMPANY.city}</span>
+            Reliable Central A/C Services in{" "}
+            <motion.span
+              key={index}
+              className="text-red-800 inline-block"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              {locations[index]}
+            </motion.span>
           </h1>
           <p className="mt-4 text-gray-700 leading-relaxed">
             From new installations to emergency repairs, our expert team keeps your cooling system running at peak performance. <Counter target={COMPANY.years} />+ years of trusted service.
