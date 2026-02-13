@@ -1,5 +1,16 @@
 import Head from "next/head";
-import AlMaghseelSite from "../components/AlMaghseelSite";
+import SEO from "../components/SEO";
+import Header from "../components/layout/Header";
+import Footer from "../components/layout/Footer";
+import Hero from "../components/sections/Hero";
+import Services from "../components/sections/Services";
+import About from "../components/sections/About";
+import Testimonials from "../components/sections/Testimonials";
+import ServiceAreas from "../components/sections/ServiceAreas";
+import Contact from "../components/sections/Contact";
+import WhatsAppFAB from "../components/ui/WhatsAppFAB";
+import MobileCallBar from "../components/ui/MobileCallBar";
+import SmokeTests from "../components/SmokeTests";
 
 export default function Home() {
   return (
@@ -60,108 +71,21 @@ export default function Home() {
         {/* Preconnects (perf micro-boosts) */}
         <link rel="preconnect" href="https://wa.me" />
         <link rel="dns-prefetch" href="https://wa.me" />
-
-        {/* Structured Data: HVACBusiness */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "HVACBusiness",
-              "name": "Al Maghseel Central Air Conditioner Est.",
-              "url": "https://almaghseel.com/",
-              "image": "https://almaghseel.com/logo-al-maghseel.PNG",
-              "telephone": "+971506734821",
-              "email": "maghseel1971@gmail.com",
-              "slogan": "Installation · Repair · Maintenance",
-              "foundingDate": "2006-01-01",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Al Ain",
-                "addressRegion": "Abu Dhabi",
-                "addressCountry": "AE"
-              },
-              "areaServed": [
-                "Al Ain",
-                "Abu Dhabi",
-                "Dubai",
-                "Sharjah",
-                "Ajman",
-                "Ras Al Khaimah",
-                "Umm Al Quwain",
-                "Fujairah"
-              ],
-              "openingHoursSpecification": [
-                { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "00:00", "closes": "23:59" }
-              ],
-              "sameAs": [
-                "https://www.facebook.com/p/Al-Maghseel-Central-Air-Conditioner-Est-100076006452976/",
-                "https://www.instagram.com/maghseel/?hl=am-et"
-              ],
-              "makesOffer": [
-                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AC Repair & Maintenance", "description": "Emergency AC repair, fault diagnostics, and on-site maintenance across UAE." } },
-                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AC Installation & Commissioning", "description": "Professional AC unit installation and commissioning for split and central systems." } },
-                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Annual Maintenance Contracts", "description": "Scheduled AC servicing plans for homes, offices, and facilities." } },
-                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Central & HVAC Service", "description": "Full central AC/HVAC maintenance for commercial and industrial clients." } },
-                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AC Gas Refill & Leak Fixing", "description": "Refrigerant refill and precise leak detection to restore cooling performance." } },
-                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AC Cleaning & Coil Service", "description": "Coil and filter cleaning to improve airflow, hygiene, and efficiency." } }
-              ],
-              "contactPoint": [{
-                "@type": "ContactPoint",
-                "telephone": "+971506734821",
-                "contactType": "customer service",
-                "availableLanguage": ["en", "ar"]
-              }]
-            })
-          }}
-        />
-
-        {/* Structured Data: WebSite */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              "name": "Al Maghseel Central Air Conditioner Est.",
-              "url": "https://almaghseel.com/",
-              "inLanguage": "en",
-              "publisher": {
-                "@type": "Organization",
-                "name": "Al Maghseel Central Air Conditioner Est.",
-                "logo": {
-                  "@type": "ImageObject",
-                  "url": "https://almaghseel.com/logo-al-maghseel.PNG"
-                }
-              }
-            })
-          }}
-        />
-
-        {/* Structured Data: WebSite (Arabic) */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              "name": "المغسيل للتكييف المركزي",
-              "alternateName": "Al Maghseel Central Air Conditioner Est.",
-              "url": "https://almaghseel.com/ar/",
-              "inLanguage": "ar",
-              "publisher": {
-                "@type": "Organization",
-                "name": "المغسيل للتكييف المركزي",
-                "logo": {
-                  "@type": "ImageObject",
-                  "url": "https://almaghseel.com/logo-al-maghseel.PNG"
-                }
-              }
-            })
-          }}
-        />
       </Head>
-      <AlMaghseelSite />
+      <main className="font-sans text-gray-900">
+        <SEO />
+        <Header />
+        <Hero />
+        <Services />
+        <About />
+        <Testimonials />
+        <ServiceAreas />
+        <Contact />
+        <Footer />
+        <WhatsAppFAB />
+        <MobileCallBar />
+        <SmokeTests />
+      </main>
     </>
   );
 }

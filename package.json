@@ -9,6 +9,7 @@
     "export": "next build && next export"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.9",
     "@vercel/analytics": "^1.5.0",
     "framer-motion": "^12.23.22",
     "lucide-react": "^0.403.0",
