@@ -7,12 +7,13 @@ import {
     ShieldCheck,
     Clock,
     ArrowRight,
-    CheckCircle,
+    Droplets,
+    Zap,
 } from "lucide-react";
 import { COMPANY } from "../layout/Header";
 
 const fadeUp = {
-    initial: { opacity: 0, y: 24 },
+    initial: { opacity: 1, y: 0 },
     whileInView: { opacity: 1, y: 0 },
     viewport: { once: true, amount: 0.2 },
     transition: { duration: 0.6 },
@@ -198,46 +199,52 @@ export const SERVICES: Service[] = [
     },
 ];
 
+const featuredServices = [
+    { icon: <Fan className="h-9 w-9" />, name: "A/C Installation & Commissioning" },
+    { icon: <Clock className="h-9 w-9" />, name: "Annual Maintenance Contracts" },
+    { icon: <Wrench className="h-9 w-9" />, name: "A/C Repair Services" },
+    { icon: <Thermometer className="h-9 w-9" />, name: "Gas Leak Repair" },
+    { icon: <Droplets className="h-9 w-9" />, name: "Water Leak Repair" },
+    { icon: <ShieldCheck className="h-9 w-9" />, name: "Compressor Repair" },
+    { icon: <Zap className="h-9 w-9" />, name: "Electrical Fault Repair" },
+    { icon: <Wrench className="h-9 w-9" />, name: "PCB / Control Board Repair" },
+    { icon: <Thermometer className="h-9 w-9" />, name: "Coil Cleaning & Maintenance" },
+    { icon: <Fan className="h-9 w-9" />, name: "Filter, Blower & Unit Service" },
+];
+
 export default function Services() {
     return (
         <section id="services" className="bg-white">
-            <div className="mx-auto max-w-7xl px-4 py-16">
-                <motion.h2 className="text-3xl md:text-4xl font-bold" {...fadeUp}>Our Services</motion.h2>
-                <motion.p className="mt-2 text-gray-700" {...fadeUp} transition={{ delay: 0.05 }}>End-to-end A/C solutions across the UAE.</motion.p>
-                <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {SERVICES.map((s, i) => (
+            <div className="mx-auto max-w-7xl px-4 py-14 md:py-18">
+                <motion.div className="text-center" {...fadeUp}>
+                    <div className="text-xs font-black uppercase tracking-[0.18em] text-brand-800">Our Services</div>
+                    <h2 className="mt-2 font-heading text-3xl font-black tracking-normal text-gray-950 md:text-4xl">
+                        Complete A/C Solutions
+                    </h2>
+                </motion.div>
+                <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+                    {featuredServices.map((s, i) => (
                         <motion.div
                             key={i}
                             data-testid="service-card"
-                            className="group rounded-2xl border bg-white p-6 shadow-sm hover:shadow-md transition"
-                            initial={{ opacity: 0, y: 20 }}
+                            className="group flex min-h-[132px] flex-col items-center justify-center rounded-md border border-gray-200 bg-white p-5 text-center shadow-sm transition hover:-translate-y-1 hover:border-brand-200 hover:shadow-[0_14px_28px_rgba(59,12,10,0.1)]"
+                            initial={{ opacity: 1, y: 0 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.2 }}
                             transition={{ duration: 0.45, delay: i * 0.04 }}
                         >
-                            <div className="flex items-center gap-3">
-                                <div className="rounded-xl bg-red-50 text-red-900 p-2">{s.icon}</div>
-                                <h3 className="font-semibold text-lg">{s.name}</h3>
-                            </div>
-                            <p className="mt-2 text-sm text-gray-700">{s.short}</p>
-                            <ul className="mt-4 space-y-2 text-sm">
-                                {s.points.map((pt, j) => (
-                                    <li key={j} className="flex items-start gap-2">
-                                        <CheckCircle className="w-4 h-4 mt-0.5 text-red-700" />
-                                        <span>{pt}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                            <div className="mt-5">
-                                <a
-                                    href={`https://wa.me/${COMPANY.whatsappDigits}?text=${encodeURIComponent(`I am interested in: ${s.name}`)}`}
-                                    className="inline-flex items-center gap-1 text-red-800 font-medium hover:underline"
-                                >
-                                    Request this service <ArrowRight className="w-4 h-4" />
-                                </a>
-                            </div>
+                            <div className="text-brand-800 transition group-hover:scale-105">{s.icon}</div>
+                            <h3 className="mt-4 text-sm font-black leading-tight text-gray-950">{s.name}</h3>
                         </motion.div>
                     ))}
+                </div>
+                <div className="mt-8 text-center">
+                    <a
+                        href={`https://wa.me/${COMPANY.whatsappDigits}?text=${encodeURIComponent("Hello Al Maghseel, I would like to view all A/C services.")}`}
+                        className="inline-flex items-center justify-center gap-3 rounded bg-brand-900 px-7 py-4 text-xs font-extrabold uppercase tracking-wide text-white transition hover:bg-brand-800"
+                    >
+                        View All Services <ArrowRight className="h-4 w-4" />
+                    </a>
                 </div>
             </div>
         </section>
