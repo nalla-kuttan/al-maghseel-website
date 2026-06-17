@@ -8,8 +8,7 @@ const quickLinks = [
     ["Home", "#"],
     ["About Us", "#about"],
     ["Services", "#services"],
-    ["Maintenance", "#services"],
-    ["Our Work", "#about"],
+    ["Service Areas", "#areas"],
     ["Contact Us", "#contact"],
 ];
 const serviceAreas = ["Al Ain", "Abu Dhabi", "Dubai", "Sharjah", "Ajman", "Umm Al Quwain", "Ras Al Khaimah", "Fujairah"];
@@ -23,9 +22,9 @@ export default function Footer() {
                         <Image
                             src="/logo-al-maghseel.png"
                             alt="Al Maghseel Logo"
-                            width={76}
+                            width={64}
                             height={64}
-                            className="h-16 w-20 object-contain"
+                            className="object-contain"
                         />
                         <div>
                             <div className="text-lg font-black uppercase leading-tight">Al Maghseel</div>
@@ -41,7 +40,7 @@ export default function Footer() {
                     <h3 className="text-xs font-black uppercase tracking-wide">Quick Links</h3>
                     <ul className="mt-5 space-y-2 text-sm text-white/70">
                         {quickLinks.map(([label, href]) => (
-                            <li key={label}><a href={href} className="hover:text-white">{label}</a></li>
+                            <li key={label}><a href={href} className="rounded-sm hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-100">{label}</a></li>
                         ))}
                     </ul>
                 </div>
@@ -50,7 +49,7 @@ export default function Footer() {
                     <h3 className="text-xs font-black uppercase tracking-wide">Our Services</h3>
                     <ul className="mt-5 space-y-2 text-sm text-white/70">
                         {SERVICES.slice(0, 7).map((item) => (
-                            <li key={item.name}><a href="#services" className="hover:text-white">{item.name.replace("On-Site ", "").replace(" & Commissioning", "")}</a></li>
+                            <li key={item.name}><a href="#services" className="rounded-sm hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-100">{item.name.replace("On-Site ", "").replace(" & Commissioning", "")}</a></li>
                         ))}
                     </ul>
                 </div>
@@ -67,11 +66,11 @@ export default function Footer() {
                 <div>
                     <h3 className="text-xs font-black uppercase tracking-wide">Get in Touch</h3>
                     <div className="mt-5 space-y-5 text-sm text-white/75">
-                        <a href={`tel:${COMPANY.phone}`} className="flex gap-3 hover:text-white">
+                        <a href={`tel:${COMPANY.phone}`} className="flex rounded-sm gap-3 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-100">
                             <Phone className="mt-0.5 h-5 w-5 text-brand-100" />
-                            <span><strong className="block text-white">{COMPANY.phone.replace("+971", "0")}</strong>24/7 Call Support</span>
+                            <span><strong className="block text-white">{COMPANY.displayPhone}</strong>24/7 Call Support</span>
                         </a>
-                        <a href={`mailto:${COMPANY.email}`} className="flex gap-3 hover:text-white">
+                        <a href={`mailto:${COMPANY.email}`} className="flex rounded-sm gap-3 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-100">
                             <Mail className="mt-0.5 h-5 w-5 text-brand-100" />
                             <span><strong className="block text-white">{COMPANY.email}</strong>Email Us</span>
                         </a>

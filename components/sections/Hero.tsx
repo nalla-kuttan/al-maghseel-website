@@ -46,21 +46,21 @@ export default function Hero() {
                     <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                         <a
                             href={`https://wa.me/${COMPANY.whatsappDigits}?text=${encodeURIComponent(`Hello Al Maghseel, ${COMPANY.cta}`)}`}
-                            className="inline-flex items-center justify-center gap-3 rounded bg-brand-900 px-7 py-4 text-xs font-extrabold uppercase tracking-wide text-white shadow-[0_14px_30px_rgba(59,12,10,0.22)] transition hover:bg-brand-800"
+                            className="inline-flex items-center justify-center gap-3 rounded bg-brand-900 px-7 py-4 text-xs font-extrabold uppercase tracking-wide text-white shadow-[0_14px_30px_rgba(59,12,10,0.22)] transition hover:bg-brand-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2"
                         >
-                            Get a Free Quote <ArrowRight className="h-4 w-4" />
+                            Get Quote <ArrowRight className="h-4 w-4" />
                         </a>
                         <a
                             href={`tel:${COMPANY.phone}`}
-                            className="inline-flex items-center justify-center gap-3 rounded border border-brand-700 px-7 py-4 text-xs font-extrabold uppercase tracking-wide text-brand-900 transition hover:bg-brand-50"
+                            className="inline-flex items-center justify-center gap-3 rounded border border-brand-700 px-7 py-4 text-xs font-extrabold uppercase tracking-wide text-brand-900 transition hover:bg-brand-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2"
                         >
                             Call Now <Phone className="h-4 w-4" />
                         </a>
                         <a
                             href={`https://wa.me/${COMPANY.whatsappDigits}`}
-                            className="inline-flex items-center justify-center gap-3 rounded bg-[#07973f] px-7 py-4 text-xs font-extrabold uppercase tracking-wide text-white transition hover:bg-[#087f37]"
+                            className="inline-flex items-center justify-center gap-3 rounded bg-emerald-700 px-7 py-4 text-xs font-extrabold uppercase tracking-wide text-white transition hover:bg-emerald-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300 focus-visible:ring-offset-2"
                         >
-                            WhatsApp Us <MessageCircle className="h-4 w-4" />
+                            WhatsApp <MessageCircle className="h-4 w-4" />
                         </a>
                     </div>
 
@@ -81,9 +81,10 @@ export default function Hero() {
                             alt="Technicians servicing rooftop air conditioning units"
                             fill
                             className="object-cover"
+                            priority
                         />
                     </div>
-                    <div className="absolute -bottom-6 right-5 hidden w-60 rounded-md bg-white p-6 shadow-[0_18px_45px_rgba(36,6,6,0.18)] md:block">
+                    <div className="absolute bottom-6 right-5 hidden w-60 rounded-md bg-white p-6 shadow-[0_18px_45px_rgba(36,6,6,0.18)] md:block">
                         <div className="flex gap-4">
                             <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-brand-900 text-white">
                                 <Phone className="h-6 w-6" />

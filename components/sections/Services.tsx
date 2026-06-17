@@ -200,16 +200,66 @@ export const SERVICES: Service[] = [
 ];
 
 const featuredServices = [
-    { icon: <Fan className="h-9 w-9" />, name: "A/C Installation & Commissioning" },
-    { icon: <Clock className="h-9 w-9" />, name: "Annual Maintenance Contracts" },
-    { icon: <Wrench className="h-9 w-9" />, name: "A/C Repair Services" },
-    { icon: <Thermometer className="h-9 w-9" />, name: "Gas Leak Repair" },
-    { icon: <Droplets className="h-9 w-9" />, name: "Water Leak Repair" },
-    { icon: <ShieldCheck className="h-9 w-9" />, name: "Compressor Repair" },
-    { icon: <Zap className="h-9 w-9" />, name: "Electrical Fault Repair" },
-    { icon: <Wrench className="h-9 w-9" />, name: "PCB / Control Board Repair" },
-    { icon: <Thermometer className="h-9 w-9" />, name: "Coil Cleaning & Maintenance" },
-    { icon: <Fan className="h-9 w-9" />, name: "Filter, Blower & Unit Service" },
+    {
+        icon: <Fan className="h-8 w-8" />,
+        name: "A/C Installation",
+        detail: "Supply, mounting, wiring and commissioning for new systems.",
+    },
+    {
+        icon: <Clock className="h-8 w-8" />,
+        name: "Annual Maintenance",
+        detail: "Scheduled inspections, cleaning and priority support.",
+    },
+    {
+        icon: <Wrench className="h-8 w-8" />,
+        name: "Emergency Repair",
+        detail: "On-site diagnosis for cooling, noise, water and airflow faults.",
+    },
+    {
+        icon: <Thermometer className="h-8 w-8" />,
+        name: "Gas Leak & Refill",
+        detail: "Pressure testing, leak repair and correct refrigerant refill.",
+    },
+    {
+        icon: <Droplets className="h-8 w-8" />,
+        name: "Water Leakage",
+        detail: "Drain clearing, tray inspection and water-damage prevention.",
+    },
+    {
+        icon: <ShieldCheck className="h-8 w-8" />,
+        name: "Parts & Electrical",
+        detail: "Compressor, PCB, capacitor, fan motor and connection issues.",
+    },
+];
+
+const supportingServices = [
+    "Compressor",
+    "PCB / Control Board",
+    "Capacitor",
+    "Electrical faults",
+    "Piping",
+    "Fan motor",
+    "Thermostat",
+    "Coil cleaning",
+    "Filter & blower",
+];
+
+const serviceSteps = [
+    {
+        icon: <Clock className="h-5 w-5" />,
+        title: "Share the issue",
+        text: "Send the service type, location and urgency by WhatsApp or phone.",
+    },
+    {
+        icon: <ShieldCheck className="h-5 w-5" />,
+        title: "Confirm visit and parts",
+        text: "We confirm the visit window and what the technician may need to bring.",
+    },
+    {
+        icon: <Zap className="h-5 w-5" />,
+        title: "Technician attends",
+        text: "The team inspects, repairs or schedules the right follow-up clearly.",
+    },
 ];
 
 export default function Services() {
@@ -222,29 +272,71 @@ export default function Services() {
                         Complete A/C Solutions
                     </h2>
                 </motion.div>
-                <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+                <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                     {featuredServices.map((s, i) => (
                         <motion.div
                             key={i}
                             data-testid="service-card"
-                            className="group flex min-h-[132px] flex-col items-center justify-center rounded-md border border-gray-200 bg-white p-5 text-center shadow-sm transition hover:-translate-y-1 hover:border-brand-200 hover:shadow-[0_14px_28px_rgba(59,12,10,0.1)]"
+                            className="group flex min-h-[168px] flex-col rounded-md border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-brand-200 hover:shadow-[0_14px_28px_rgba(59,12,10,0.1)]"
                             initial={{ opacity: 1, y: 0 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.2 }}
                             transition={{ duration: 0.45, delay: i * 0.04 }}
                         >
                             <div className="text-brand-800 transition group-hover:scale-105">{s.icon}</div>
-                            <h3 className="mt-4 text-sm font-black leading-tight text-gray-950">{s.name}</h3>
+                            <h3 className="mt-5 text-lg font-black leading-tight text-gray-950">{s.name}</h3>
+                            <p className="mt-3 text-sm font-medium leading-6 text-gray-600">{s.detail}</p>
                         </motion.div>
                     ))}
+                </div>
+                <div className="mt-7 rounded-md border border-brand-100 bg-brand-50 px-5 py-4">
+                    <div className="flex flex-col gap-3 md:flex-row md:items-center">
+                        <div className="text-sm font-black text-brand-950 md:w-44">Also handles</div>
+                        <div className="flex flex-wrap gap-2">
+                            {supportingServices.map((item) => (
+                                <span key={item} className="rounded bg-white px-3 py-1.5 text-xs font-bold text-brand-900 ring-1 ring-brand-100">
+                                    {item}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
                 </div>
                 <div className="mt-8 text-center">
                     <a
                         href={`https://wa.me/${COMPANY.whatsappDigits}?text=${encodeURIComponent("Hello Al Maghseel, I would like to view all A/C services.")}`}
-                        className="inline-flex items-center justify-center gap-3 rounded bg-brand-900 px-7 py-4 text-xs font-extrabold uppercase tracking-wide text-white transition hover:bg-brand-800"
+                        className="inline-flex items-center justify-center gap-3 rounded bg-brand-900 px-7 py-4 text-xs font-extrabold uppercase tracking-wide text-white transition hover:bg-brand-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2"
                     >
                         View All Services <ArrowRight className="h-4 w-4" />
                     </a>
+                </div>
+
+                <div className="mt-12 border-y border-brand-100 py-6">
+                    <div className="grid gap-5 md:grid-cols-[0.9fr_1.1fr] md:items-start">
+                        <div>
+                            <h3 className="text-2xl font-black leading-tight text-gray-950">
+                                How your service visit works
+                            </h3>
+                            <p className="mt-3 max-w-md text-sm font-medium leading-6 text-gray-700">
+                                A simple path for urgent repairs, planned maintenance and new A/C installations.
+                            </p>
+                        </div>
+                        <div className="grid gap-4 sm:grid-cols-3">
+                            {serviceSteps.map((step, index) => (
+                                <div key={step.title} className="flex gap-3">
+                                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded bg-brand-900 text-white">
+                                        {step.icon}
+                                    </div>
+                                    <div>
+                                        <div className="text-xs font-black uppercase tracking-wide text-brand-800">
+                                            Step {index + 1}
+                                        </div>
+                                        <div className="mt-1 text-sm font-black text-gray-950">{step.title}</div>
+                                        <p className="mt-1 text-xs font-medium leading-5 text-gray-600">{step.text}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

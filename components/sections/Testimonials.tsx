@@ -34,11 +34,13 @@ export default function Testimonials() {
     return (
         <section className="bg-white py-16 sm:py-20">
             <div className="mx-auto max-w-7xl px-4 lg:px-8">
-                <motion.div className="text-center" {...fadeUp}>
-                    <div className="text-xs font-black uppercase tracking-[0.18em] text-brand-800">What Our Clients Say</div>
-                    <h2 className="text-3xl font-heading font-bold text-navy-900 sm:text-4xl">
+                <motion.div className="grid gap-4 md:grid-cols-[0.9fr_1.1fr] md:items-end" {...fadeUp}>
+                    <h2 className="font-heading text-3xl font-bold leading-tight text-navy-900 sm:text-4xl">
                         Trusted by Thousands Across the UAE
                     </h2>
+                    <p className="max-w-2xl text-base font-medium leading-7 text-slate-600 md:justify-self-end">
+                        Homeowners and businesses call us when the cooling cannot wait. These notes reflect the response speed and care customers expect from the team.
+                    </p>
                 </motion.div>
 
                 <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
