@@ -10,7 +10,6 @@ import ServiceAreas from "../components/sections/ServiceAreas";
 import Contact from "../components/sections/Contact";
 import WhatsAppFAB from "../components/ui/WhatsAppFAB";
 import MobileCallBar from "../components/ui/MobileCallBar";
-import SmokeTests from "../components/SmokeTests";
 
 export default function Home() {
   return (
@@ -27,8 +26,8 @@ export default function Home() {
           content="AC repair Al Ain, AC installation Al Ain, AC maintenance UAE, central AC service Abu Dhabi, 24/7 AC repair UAE, emergency AC technician Al Ain, split AC installation Abu Dhabi, HVAC service UAE, compressor repair Al Ain, AC gas refill UAE, AC cleaning service Al Ain, AC maintenance near me, AC repair near me, thermostat repair UAE, coil cleaning Abu Dhabi"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/logo-al-maghseel.PNG" />
-        <link rel="canonical" href="https://almaghseel.com/" />
+        <link rel="icon" href="/logo-al-maghseel.png" />
+        <link rel="canonical" href="https://www.almaghseel.com/" />
         <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
         <meta name="theme-color" content="#7f1d1d" />
 
@@ -38,35 +37,19 @@ export default function Home() {
         <meta property="og:locale" content="en_AE" />
         <meta property="og:title" content="AC Repair, Installation &amp; Maintenance in Al Ain | Al Maghseel" />
         <meta property="og:description" content="24/7 AC repair and HVAC services across the UAE. Fast response in Al Ain &amp; Abu Dhabi. Since 2006." />
-        <meta property="og:url" content="https://almaghseel.com/" />
-        <meta property="og:image" content="https://almaghseel.com/logo-al-maghseel.PNG" />
+        <meta property="og:url" content="https://www.almaghseel.com/" />
+        <meta property="og:image" content="https://www.almaghseel.com/logo-al-maghseel.png" />
         <meta property="og:image:alt" content="Al Maghseel — AC repair &amp; HVAC services in Al Ain, UAE" />
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="AC Repair, Installation &amp; Maintenance in Al Ain | Al Maghseel" />
         <meta name="twitter:description" content="Professional AC installation, repair &amp; maintenance in Al Ain and across UAE. 24/7 emergency service." />
-        <meta name="twitter:image" content="https://almaghseel.com/logo-al-maghseel.PNG" />
-
-        {/* Arabic localized meta (temporary until /ar route exists) */}
-        <meta
-          name="description"
-          lang="ar"
-          content="خدمات احترافية لتركيب وصيانة وإصلاح المكيفات في العين وأبوظبي ودبي وجميع الإمارات. طوارئ 24/7، فنيون معتمدون، خبرة منذ 2006."
-        />
-        <meta
-          name="keywords"
-          lang="ar"
-          content="تصليح مكيفات العين، تركيب مكيفات العين، صيانة مكيفات الإمارات، صيانة التكييف المركزي أبوظبي، فني تكييف 24/7 الإمارات، فني تكييف طارئ العين، تركيب سبليت أبوظبي، خدمة HVAC الإمارات، تعبئة غاز المكيف الإمارات، تنظيف لفائف المكيف أبوظبي"
-        />
+        <meta name="twitter:image" content="https://www.almaghseel.com/logo-al-maghseel.png" />
 
         {/* Hreflang (English - UAE) */}
-        <link rel="alternate" hrefLang="en-ae" href="https://almaghseel.com/" />
-        <link rel="alternate" hrefLang="x-default" href="https://almaghseel.com/" />
-
-        {/* Hreflang (Arabic - UAE) */}
-        <link rel="alternate" hrefLang="ar-ae" href="https://almaghseel.com/ar/" />
-        <meta property="og:locale:alternate" content="ar_AE" />
+        <link rel="alternate" hrefLang="en-ae" href="https://www.almaghseel.com/" />
+        <link rel="alternate" hrefLang="x-default" href="https://www.almaghseel.com/" />
 
         {/* Preconnects (perf micro-boosts) */}
         <link rel="preconnect" href="https://wa.me" />
@@ -84,7 +67,6 @@ export default function Home() {
         <Footer />
         <WhatsAppFAB />
         <MobileCallBar />
-        <SmokeTests />
       </main>
     </>
   );

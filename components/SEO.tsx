@@ -1,9 +1,6 @@
 import React from "react";
 import { COMPANY } from "./layout/Header";
-import { SERVICES } from "./sections/Services"; // This requires exporting SERVICES from Services.tsx
-
-// Need to update Services.tsx to export SERVICES or duplicate it. 
-// For now, I'll assume I can export it.
+import { SERVICES } from "./sections/Services";
 
 export default function SEO() {
     const schema = {
@@ -11,11 +8,11 @@ export default function SEO() {
         "@graph": [
             {
                 "@type": "HVACBusiness",
-                "@id": "https://almaghseel.com/#organization",
+                "@id": "https://www.almaghseel.com/#organization",
                 name: COMPANY.name,
-                url: "https://almaghseel.com/",
-                logo: "https://almaghseel.com/logo-al-maghseel.PNG",
-                image: "https://almaghseel.com/logo-al-maghseel.PNG",
+                url: "https://www.almaghseel.com/",
+                logo: "https://www.almaghseel.com/logo-al-maghseel.png",
+                image: "https://www.almaghseel.com/logo-al-maghseel.png",
                 description: COMPANY.tagline,
                 telephone: COMPANY.phone,
                 email: COMPANY.email,
@@ -76,11 +73,11 @@ export default function SEO() {
             },
             {
                 "@type": "WebSite",
-                "@id": "https://almaghseel.com/#website",
-                url: "https://almaghseel.com/",
+                "@id": "https://www.almaghseel.com/#website",
+                url: "https://www.almaghseel.com/",
                 name: COMPANY.name,
                 publisher: {
-                    "@id": "https://almaghseel.com/#organization",
+                    "@id": "https://www.almaghseel.com/#organization",
                 },
                 inLanguage: "en",
             },

@@ -8,12 +8,12 @@
     "theme_color": "#7f1d1d",
     "icons": [
         {
-            "src": "/logo-al-maghseel.PNG",
+            "src": "/logo-al-maghseel.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "/logo-al-maghseel.PNG",
+            "src": "/logo-al-maghseel.png",
             "sizes": "512x512",
             "type": "image/png"
         }
