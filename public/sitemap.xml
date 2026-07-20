@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.almaghseel.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en-ae" href="https://www.almaghseel.com/" />
+    <xhtml:link rel="alternate" hreflang="ar-ae" href="https://www.almaghseel.com/ar/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.almaghseel.com/" />
     <lastmod>2026-07-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.almaghseel.com/ar/</loc>
+    <xhtml:link rel="alternate" hreflang="en-ae" href="https://www.almaghseel.com/" />
+    <xhtml:link rel="alternate" hreflang="ar-ae" href="https://www.almaghseel.com/ar/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.almaghseel.com/" />
     <lastmod>2026-07-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
