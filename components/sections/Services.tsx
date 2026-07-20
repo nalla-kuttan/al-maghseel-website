@@ -1,343 +1,156 @@
 import React from "react";
-import { motion } from "framer-motion";
 import {
-    Wrench,
-    Fan,
-    Thermometer,
-    ShieldCheck,
-    Clock,
     ArrowRight,
+    CalendarCheck,
     Droplets,
-    Zap,
+    Fan,
+    MessageCircle,
+    Snowflake,
+    Wrench,
 } from "lucide-react";
 import { COMPANY } from "../layout/Header";
 
-const fadeUp = {
-    initial: { opacity: 1, y: 0 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, amount: 0.2 },
-    transition: { duration: 0.6 },
-};
-
-type Service = {
-    icon: React.ReactNode;
-    name: string;
-    short: string;
-    points: string[];
-};
-
-export const SERVICES: Service[] = [
+export const SERVICE_OFFERINGS = [
     {
-        icon: <Wrench className="w-6 h-6" />,
-        name: "AC Installation & Commissioning",
-        short:
-            "Complete supply, installation, and commissioning of new air conditioning units.",
-        points: [
-            "Includes unit selection and supply",
-            "Professional installation with proper mounting and wiring",
-            "System testing and performance verification",
-            "Ensures compliance with safety and energy standards",
-        ],
+        name: "A/C troubleshooting and repair",
+        description: "Diagnosis for cooling, airflow, refrigerant, thermostat, compressor and electrical faults.",
     },
     {
-        icon: <Clock className="w-6 h-6" />,
-        name: "Annual Maintenance Contracts",
-        short:
-            "Scheduled maintenance plans to keep AC systems running efficiently year-round.",
-        points: [
-            "Regular inspections and cleaning",
-            "Priority support for breakdowns",
-            "Cost-effective long-term upkeep",
-            "Helps extend equipment life",
-        ],
+        name: "A/C water-leak repair",
+        description: "Drain clearing, tray and hose inspection, seals and indoor-unit water issues.",
     },
     {
-        icon: <ShieldCheck className="w-6 h-6" />,
-        name: "On-Site AC Repair & Maintenance",
-        short: "Mobile repair services for resolving any AC issues at your location.",
-        points: [
-            "Quick diagnostics and fixes",
-            "Covers indoor and outdoor units",
-            "Reduces downtime",
-            "No need to uninstall system",
-        ],
+        name: "A/C installation",
+        description: "Unit selection, mounting, piping, wiring, testing and commissioning.",
     },
     {
-        icon: <Fan className="w-6 h-6" />,
-        name: "Indoor & Outdoor Water Service",
-        short:
-            "Servicing water lines and components connected to split or duct AC units.",
-        points: [
-            "Water drainage check and cleaning",
-            "Removal of clogs in pipes",
-            "Prevents leakage and water damage",
-            "Balances indoor humidity",
-        ],
-    },
-    {
-        icon: <ShieldCheck className="w-6 h-6" />,
-        name: "Water Leak Fixing",
-        short: "Identifying and repairing internal or external AC water leaks.",
-        points: [
-            "Drain pipe clearing",
-            "Sealant application",
-            "Water tray and hose inspection",
-            "Prevents mold and water stains",
-        ],
-    },
-    {
-        icon: <Thermometer className="w-6 h-6" />,
-        name: "Gas Leak Fixing",
-        short: "Detection and repair of refrigerant gas leaks in AC systems.",
-        points: [
-            "Pressure test and leak detection",
-            "Gas refill with correct refrigerant",
-            "Valve and pipe repair",
-            "Restores cooling efficiency",
-        ],
-    },
-    {
-        icon: <Wrench className="w-6 h-6" />,
-        name: "Capacitor & Magnetic Conductor Fixing",
-        short: "Repair or replacement of key electrical components inside the AC.",
-        points: [
-            "Faulty capacitor replacement",
-            "Magnetic relay/contactor service",
-            "Improves startup performance",
-            "Fixes power supply issues",
-        ],
-    },
-    {
-        icon: <Wrench className="w-6 h-6" />,
-        name: "Compressor Fixing",
-        short:
-            "Repair or servicing of the AC compressor, the system’s cooling engine.",
-        points: [
-            "Overheating and noise diagnostics",
-            "Oil top-up or compressor replacement",
-            "Increases cooling performance",
-            "High-precision repair required",
-        ],
-    },
-    {
-        icon: <Wrench className="w-6 h-6" />,
-        name: "PC Board Fixing",
-        short: "Electronic board (PCB) troubleshooting and repair.",
-        points: [
-            "Resolves display or control issues",
-            "Repair/replace burnt-out components",
-            "Restores normal operation",
-            "Involves micro-level testing",
-        ],
-    },
-    {
-        icon: <ShieldCheck className="w-6 h-6" />,
-        name: "Electrical Connection Issues",
-        short: "Rectification of wiring and power supply issues in the AC.",
-        points: [
-            "Loose or damaged wire replacement",
-            "Voltage stability checks",
-            "Ensures safe operation",
-            "Prevents short circuits and power loss",
-        ],
-    },
-    {
-        icon: <Fan className="w-6 h-6" />,
-        name: "Piping Works",
-        short: "Installation and repair of copper and drainage piping for AC systems.",
-        points: [
-            "Leak-proof copper piping",
-            "Drain pipe routing",
-            "Insulation of lines",
-            "Affects cooling efficiency directly",
-        ],
-    },
-    {
-        icon: <Fan className="w-6 h-6" />,
-        name: "Fan Blade & Fan Motor",
-        short:
-            "Servicing or replacement of fan blade/motor in indoor or outdoor units.",
-        points: [
-            "Fixes noise and airflow issues",
-            "Replacement of bent/damaged blades",
-            "Lubrication and motor rewiring",
-            "Essential for proper air circulation",
-        ],
-    },
-    {
-        icon: <Thermometer className="w-6 h-6" />,
-        name: "Thermostat Repair",
-        short: "Diagnosis and fixing of AC temperature control units.",
-        points: [
-            "Calibration and wiring checks",
-            "Replacement of faulty sensors",
-            "Accurate temperature regulation",
-            "Supports energy efficiency",
-        ],
-    },
-    {
-        icon: <Fan className="w-6 h-6" />,
-        name: "Condensing Coil Cleaning/Repair",
-        short: "Maintenance or replacement of the external condensing coil.",
-        points: [
-            "Dirt/debris removal",
-            "Improves heat dissipation",
-            "Repairs corrosion or blockages",
-            "Crucial for compressor performance",
-        ],
-    },
-    {
-        icon: <ShieldCheck className="w-6 h-6" />,
-        name: "Filter Tray, Switch, Blower, etc.",
-        short: "Servicing of miscellaneous internal AC components.",
-        points: [
-            "Filter tray cleaning",
-            "Switch replacement",
-            "Blower motor service",
-            "Ensures clean air and smooth airflow",
-        ],
+        name: "Planned A/C maintenance",
+        description: "Cleaning, inspection and scheduled support for homes and commercial properties.",
     },
 ];
 
-const featuredServices = [
+const servicePaths = [
     {
-        icon: <Fan className="h-8 w-8" />,
-        name: "A/C Installation",
-        detail: "Supply, mounting, wiring and commissioning for new systems.",
+        icon: Snowflake,
+        cue: "The A/C is not cooling",
+        scope: "Diagnosis for airflow, refrigerant, thermostat, compressor and electrical faults.",
     },
     {
-        icon: <Clock className="h-8 w-8" />,
-        name: "Annual Maintenance",
-        detail: "Scheduled inspections, cleaning and priority support.",
+        icon: Droplets,
+        cue: "Water is leaking",
+        scope: "Drain clearing, tray and hose inspection, seals and indoor-unit water issues.",
     },
     {
-        icon: <Wrench className="h-8 w-8" />,
-        name: "Emergency Repair",
-        detail: "On-site diagnosis for cooling, noise, water and airflow faults.",
+        icon: Fan,
+        cue: "I need a new system",
+        scope: "Unit selection, mounting, piping, wiring, testing and commissioning.",
     },
     {
-        icon: <Thermometer className="h-8 w-8" />,
-        name: "Gas Leak & Refill",
-        detail: "Pressure testing, leak repair and correct refrigerant refill.",
-    },
-    {
-        icon: <Droplets className="h-8 w-8" />,
-        name: "Water Leakage",
-        detail: "Drain clearing, tray inspection and water-damage prevention.",
-    },
-    {
-        icon: <ShieldCheck className="h-8 w-8" />,
-        name: "Parts & Electrical",
-        detail: "Compressor, PCB, capacitor, fan motor and connection issues.",
+        icon: CalendarCheck,
+        cue: "I need planned maintenance",
+        scope: "Cleaning, inspection and scheduled support for homes and commercial properties.",
     },
 ];
 
-const supportingServices = [
-    "Compressor",
-    "PCB / Control Board",
-    "Capacitor",
-    "Electrical faults",
-    "Piping",
-    "Fan motor",
-    "Thermostat",
-    "Coil cleaning",
-    "Filter & blower",
+const technicalServices = [
+    "Refrigerant leak testing and refill",
+    "Compressor inspection and repair",
+    "PCB and control-board faults",
+    "Capacitor and magnetic contactor replacement",
+    "Electrical connections and wiring",
+    "Copper and drainage piping",
+    "Fan blade, fan motor and blower service",
+    "Thermostat and sensor faults",
+    "Condenser coil cleaning and repair",
+    "Filters, trays, switches and internal components",
 ];
 
 const serviceSteps = [
     {
-        icon: <Clock className="h-5 w-5" />,
-        title: "Share the issue",
-        text: "Send the service type, location and urgency by WhatsApp or phone.",
+        title: "Share the symptom",
+        text: "Send your location, building type and what the A/C is doing.",
     },
     {
-        icon: <ShieldCheck className="h-5 w-5" />,
-        title: "Confirm visit and parts",
-        text: "We confirm the visit window and what the technician may need to bring.",
+        title: "Confirm availability",
+        text: "We confirm the visit window and whether any known parts may be needed.",
     },
     {
-        icon: <Zap className="h-5 w-5" />,
-        title: "Technician attends",
-        text: "The team inspects, repairs or schedules the right follow-up clearly.",
+        title: "Inspect before repair",
+        text: "The technician diagnoses the issue and explains the next step before major work.",
     },
 ];
 
 export default function Services() {
     return (
-        <section id="services" className="bg-white">
-            <div className="mx-auto max-w-7xl px-4 py-14 md:py-18">
-                <motion.div className="text-center" {...fadeUp}>
-                    <div className="text-xs font-black uppercase tracking-[0.18em] text-brand-800">Our Services</div>
-                    <h2 className="mt-2 font-heading text-3xl font-black tracking-normal text-gray-950 md:text-4xl">
-                        Complete A/C Solutions
-                    </h2>
-                </motion.div>
-                <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                    {featuredServices.map((s, i) => (
-                        <motion.div
-                            key={i}
-                            data-testid="service-card"
-                            className="group flex min-h-[168px] flex-col rounded-md border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-brand-200 hover:shadow-[0_14px_28px_rgba(59,12,10,0.1)]"
-                            initial={{ opacity: 1, y: 0 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, amount: 0.2 }}
-                            transition={{ duration: 0.45, delay: i * 0.04 }}
+        <section id="services" className="border-t border-brand-100 bg-white">
+            <div className="mx-auto max-w-7xl px-4 py-14 md:py-20">
+                <div className="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:gap-16">
+                    <div>
+                        <h2 className="max-w-md font-heading text-3xl font-black leading-tight text-gray-950 md:text-5xl">
+                            Start with what your A/C is doing.
+                        </h2>
+                        <p className="mt-5 max-w-md text-base font-medium leading-7 text-gray-700">
+                            You do not need to diagnose the component yourself. Choose the closest symptom and send us the details you know.
+                        </p>
+                        <a
+                            href={`https://wa.me/${COMPANY.whatsappDigits}?text=${encodeURIComponent("Hello Al Maghseel, I need help diagnosing an A/C issue.")}`}
+                            className="mt-7 inline-flex min-h-12 items-center justify-center gap-3 rounded bg-emerald-700 px-6 py-3 text-xs font-extrabold uppercase tracking-wide text-white transition hover:bg-emerald-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2"
                         >
-                            <div className="text-brand-800 transition group-hover:scale-105">{s.icon}</div>
-                            <h3 className="mt-5 text-lg font-black leading-tight text-gray-950">{s.name}</h3>
-                            <p className="mt-3 text-sm font-medium leading-6 text-gray-600">{s.detail}</p>
-                        </motion.div>
-                    ))}
-                </div>
-                <div className="mt-7 rounded-md border border-brand-100 bg-brand-50 px-5 py-4">
-                    <div className="flex flex-col gap-3 md:flex-row md:items-center">
-                        <div className="text-sm font-black text-brand-950 md:w-44">Also handles</div>
-                        <div className="flex flex-wrap gap-2">
-                            {supportingServices.map((item) => (
-                                <span key={item} className="rounded bg-white px-3 py-1.5 text-xs font-bold text-brand-900 ring-1 ring-brand-100">
-                                    {item}
-                                </span>
-                            ))}
-                        </div>
+                            <MessageCircle className="h-4 w-4" /> Ask on WhatsApp
+                        </a>
                     </div>
-                </div>
-                <div className="mt-8 text-center">
-                    <a
-                        href={`https://wa.me/${COMPANY.whatsappDigits}?text=${encodeURIComponent("Hello Al Maghseel, I would like to view all A/C services.")}`}
-                        className="inline-flex items-center justify-center gap-3 rounded bg-brand-900 px-7 py-4 text-xs font-extrabold uppercase tracking-wide text-white transition hover:bg-brand-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2"
-                    >
-                        View All Services <ArrowRight className="h-4 w-4" />
-                    </a>
+
+                    <div className="border-y border-brand-100">
+                        {servicePaths.map(({ icon: Icon, cue, scope }, index) => (
+                            <a
+                                key={cue}
+                                href={`https://wa.me/${COMPANY.whatsappDigits}?text=${encodeURIComponent(`Hello Al Maghseel, ${cue.toLowerCase()}. My location is: `)}`}
+                                className="group grid min-h-28 grid-cols-[auto_1fr_auto] items-center gap-4 border-b border-brand-100 px-1 py-5 last:border-b-0 sm:gap-6 sm:px-4"
+                            >
+                                <span className="grid h-11 w-11 place-items-center rounded bg-brand-900 text-white">
+                                    <Icon className="h-5 w-5" />
+                                </span>
+                                <span>
+                                    <span className="block text-lg font-black text-gray-950">{cue}</span>
+                                    <span className="mt-1 block max-w-2xl text-sm font-medium leading-6 text-gray-700">{scope}</span>
+                                </span>
+                                <ArrowRight className="h-5 w-5 text-brand-700 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                            </a>
+                        ))}
+                    </div>
                 </div>
 
-                <div className="mt-12 border-y border-brand-100 py-6">
-                    <div className="grid gap-5 md:grid-cols-[0.9fr_1.1fr] md:items-start">
-                        <div>
-                            <h3 className="text-2xl font-black leading-tight text-gray-950">
-                                How your service visit works
-                            </h3>
-                            <p className="mt-3 max-w-md text-sm font-medium leading-6 text-gray-700">
-                                A simple path for urgent repairs, planned maintenance and new A/C installations.
-                            </p>
-                        </div>
-                        <div className="grid gap-4 sm:grid-cols-3">
-                            {serviceSteps.map((step, index) => (
-                                <div key={step.title} className="flex gap-3">
-                                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded bg-brand-900 text-white">
-                                        {step.icon}
-                                    </div>
-                                    <div>
-                                        <div className="text-xs font-black uppercase tracking-wide text-brand-800">
-                                            Step {index + 1}
-                                        </div>
-                                        <div className="mt-1 text-sm font-black text-gray-950">{step.title}</div>
-                                        <p className="mt-1 text-xs font-medium leading-5 text-gray-600">{step.text}</p>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
+                <div className="mt-12 grid gap-8 border-y border-brand-100 py-8 lg:grid-cols-[0.8fr_1.2fr]">
+                    <div>
+                        <h3 className="text-2xl font-black leading-tight text-gray-950">How a service visit works</h3>
+                        <p className="mt-3 max-w-md text-sm font-medium leading-6 text-gray-700">
+                            A clear handoff for urgent repairs, planned maintenance and installations.
+                        </p>
                     </div>
+                    <ol className="grid gap-6 sm:grid-cols-3">
+                        {serviceSteps.map((step, index) => (
+                            <li key={step.title}>
+                                <div className="text-sm font-black text-brand-800">0{index + 1}</div>
+                                <div className="mt-2 text-sm font-black text-gray-950">{step.title}</div>
+                                <p className="mt-2 text-sm font-medium leading-6 text-gray-700">{step.text}</p>
+                            </li>
+                        ))}
+                    </ol>
                 </div>
+
+                <details className="mt-8 rounded-md bg-brand-50 px-5 py-4 text-gray-950">
+                    <summary className="cursor-pointer text-sm font-black focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2">
+                        See the technical work we handle
+                    </summary>
+                    <ul className="mt-5 grid gap-x-8 gap-y-3 border-t border-brand-100 pt-5 text-sm font-semibold leading-6 text-gray-700 sm:grid-cols-2">
+                        {technicalServices.map((service) => (
+                            <li key={service} className="flex items-start gap-3">
+                                <Wrench className="mt-1 h-4 w-4 shrink-0 text-brand-800" />
+                                <span>{service}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </details>
             </div>
         </section>
     );

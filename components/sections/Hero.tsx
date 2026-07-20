@@ -3,19 +3,18 @@ import Image from "next/image";
 import {
     ArrowRight,
     Clock3,
-    MessageCircle,
     Phone,
-    ShieldCheck,
-    Sparkles,
-    Wrench,
+    MapPin,
+    Building2,
+    CalendarCheck,
 } from "lucide-react";
 import { COMPANY } from "../layout/Header";
 
 const trustItems = [
-    { icon: Clock3, label: "24/7 Support" },
-    { icon: Sparkles, label: "Fast Response" },
-    { icon: ShieldCheck, label: "Expert Technicians" },
-    { icon: Wrench, label: "Genuine Parts" },
+    { icon: Clock3, label: "Urgent enquiries" },
+    { icon: MapPin, label: "Based in Al Ain" },
+    { icon: Building2, label: "Homes & businesses" },
+    { icon: CalendarCheck, label: "Since 2006" },
 ];
 
 export default function Hero() {
@@ -36,31 +35,25 @@ export default function Hero() {
             <div className="mx-auto grid min-h-[620px] max-w-7xl items-center px-4 py-12 md:grid-cols-[1.05fr_0.95fr] md:py-16">
                 <div className="relative z-10 max-w-2xl">
                     <h1 className="font-heading text-[42px] font-black leading-[0.98] tracking-normal text-gray-950 sm:text-6xl lg:text-7xl">
-                        Reliable Central A/C Services Across the UAE
+                        Central A/C Help, Starting in Al Ain
                     </h1>
                     <p className="mt-6 max-w-xl text-base font-medium leading-7 text-gray-700 md:text-lg">
-                        Installation, maintenance, repair and emergency services for residential,
-                        commercial and industrial cooling systems.
+                        Installation, maintenance and repair for homes and businesses. Tell us your
+                        location and issue, and we will confirm availability before dispatch.
                     </p>
 
                     <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                         <a
                             href={`https://wa.me/${COMPANY.whatsappDigits}?text=${encodeURIComponent(`Hello Al Maghseel, ${COMPANY.cta}`)}`}
-                            className="inline-flex items-center justify-center gap-3 rounded bg-brand-900 px-7 py-4 text-xs font-extrabold uppercase tracking-wide text-white shadow-[0_14px_30px_rgba(59,12,10,0.22)] transition hover:bg-brand-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2"
+                            className="inline-flex items-center justify-center gap-3 rounded bg-emerald-700 px-7 py-4 text-xs font-extrabold uppercase tracking-wide text-white shadow-[0_8px_16px_rgba(4,120,87,0.2)] transition hover:bg-emerald-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2"
                         >
-                            Get Quote <ArrowRight className="h-4 w-4" />
+                            WhatsApp for a Quote <ArrowRight className="h-4 w-4" />
                         </a>
                         <a
                             href={`tel:${COMPANY.phone}`}
                             className="inline-flex items-center justify-center gap-3 rounded border border-brand-700 px-7 py-4 text-xs font-extrabold uppercase tracking-wide text-brand-900 transition hover:bg-brand-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2"
                         >
                             Call Now <Phone className="h-4 w-4" />
-                        </a>
-                        <a
-                            href={`https://wa.me/${COMPANY.whatsappDigits}`}
-                            className="inline-flex items-center justify-center gap-3 rounded bg-emerald-700 px-7 py-4 text-xs font-extrabold uppercase tracking-wide text-white transition hover:bg-emerald-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300 focus-visible:ring-offset-2"
-                        >
-                            WhatsApp <MessageCircle className="h-4 w-4" />
                         </a>
                     </div>
 
@@ -90,10 +83,10 @@ export default function Hero() {
                                 <Phone className="h-6 w-6" />
                             </div>
                             <div>
-                                <div className="text-xl font-black text-brand-900">24/7</div>
-                                <div className="text-sm font-extrabold text-gray-950">Emergency Service</div>
+                                <div className="text-xl font-black text-brand-900">Urgent A/C issue?</div>
+                                <div className="text-sm font-extrabold text-gray-950">Call for availability</div>
                                 <p className="mt-2 text-xs font-medium leading-5 text-gray-600">
-                                    We are ready to help anytime, anywhere.
+                                    We will confirm the earliest available visit for your location.
                                 </p>
                             </div>
                         </div>

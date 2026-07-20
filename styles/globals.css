@@ -8,9 +8,52 @@ html {
 
 body {
   background: #ffffff;
+  color: #030712;
+  font-family: var(--font-inter), sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+section[id] {
+  scroll-margin-top: 8rem;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #486581;
+  opacity: 1;
 }
 
 ::selection {
   background: #84201c;
   color: #ffffff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 767px) {
+  section[id] {
+    scroll-margin-top: 5.5rem;
+  }
 }

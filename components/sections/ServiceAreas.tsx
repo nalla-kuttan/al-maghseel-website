@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { CheckCircle2, Clock3, MapPin, MessageCircle, Phone } from "lucide-react";
+import { Clock3, MapPin, MessageCircle, Phone } from "lucide-react";
 import { COMPANY } from "../layout/Header";
 
 const fadeUp = {
@@ -23,8 +23,8 @@ export default function ServiceAreas() {
     ];
 
     const highlights = [
-        "Based in Al Ain with UAE-wide coverage",
-        "Emergency visits and scheduled maintenance",
+        "Based in Al Ain",
+        "Visit availability confirmed by location",
         "Residential, commercial and industrial systems",
     ];
 
@@ -34,14 +34,14 @@ export default function ServiceAreas() {
                 <motion.div {...fadeUp}>
                     <div className="inline-flex items-center gap-2 rounded-full bg-brand-50 px-3 py-1 text-xs font-extrabold uppercase tracking-wide text-brand-900 ring-1 ring-brand-100">
                         <MapPin className="h-3.5 w-3.5" />
-                        UAE coverage
+                        Service locations
                     </div>
                     <h2 className="mt-5 max-w-xl text-3xl font-black leading-tight text-gray-950 md:text-5xl">
-                        A/C support wherever your cooling system is in the UAE.
+                        Tell us where the A/C service is needed.
                     </h2>
                     <p className="mt-4 max-w-xl text-base font-medium leading-7 text-gray-700">
-                        Tell us your emirate, building type and issue. We will confirm the right
-                        visit window, parts expectation and service path before dispatch.
+                        The team is based in Al Ain and accepts service requests from across the Emirates.
+                        Send your exact area so availability and the visit window can be confirmed before dispatch.
                     </p>
 
                     <div className="mt-7 flex flex-col gap-3 sm:flex-row">
@@ -74,7 +74,7 @@ export default function ServiceAreas() {
                                 transition={{ delay: idx * 0.03 }}
                             >
                                 <span>{c}</span>
-                                <CheckCircle2 className="h-4 w-4 text-brand-700" />
+                                <MapPin className="h-4 w-4 text-brand-700" aria-hidden="true" />
                             </motion.li>
                         ))}
                     </ul>

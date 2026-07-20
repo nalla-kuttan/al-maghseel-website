@@ -9,9 +9,17 @@ const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <div className={`${inter.variable} ${outfit.variable} font-sans`}>
-      <Component {...pageProps} />
-      <Analytics />
-    </div>
+    <>
+      <style jsx global>{`
+        :root {
+          --font-inter: ${inter.style.fontFamily};
+          --font-outfit: ${outfit.style.fontFamily};
+        }
+      `}</style>
+      <div className={`${inter.variable} ${outfit.variable} font-sans`}>
+        <Component {...pageProps} />
+        <Analytics />
+      </div>
+    </>
   );
 }

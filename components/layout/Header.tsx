@@ -6,7 +6,7 @@ export const COMPANY = {
   name: "Al Maghseel Central Air Conditioner Est.",
   tagline: "Installation · Repair · Maintenance",
   city: "Al Ain, Abu Dhabi",
-  region: "All over UAE",
+  region: "UAE coverage by confirmation",
   years: 19,
   since: 2006,
   phone: "+971506734821",
@@ -36,10 +36,7 @@ export default function Header() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 text-xs font-semibold">
           <div className="flex items-center gap-7">
             <a href={`tel:${COMPANY.phone}`} className="inline-flex items-center gap-2">
-              <Phone className="h-3.5 w-3.5" /> 24/7 Call Support
-            </a>
-            <a href={`tel:${COMPANY.phone}`} className="inline-flex items-center gap-2">
-              <Phone className="h-3.5 w-3.5" /> {COMPANY.displayPhone}
+              <Phone className="h-3.5 w-3.5" /> Urgent support · {COMPANY.displayPhone}
             </a>
           </div>
           <div className="flex items-center gap-7">
@@ -79,9 +76,9 @@ export default function Header() {
         <div className="flex items-center gap-3">
           <a
             href={`https://wa.me/${COMPANY.whatsappDigits}?text=Hello%20Al%20Maghseel,%20I%27d%20like%20a%20quote.`}
-            className="hidden items-center gap-2 rounded bg-brand-900 px-5 py-3 text-xs font-extrabold uppercase tracking-wide text-white shadow-sm transition hover:bg-brand-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2 md:inline-flex"
+            className="hidden items-center gap-2 rounded bg-emerald-700 px-5 py-3 text-xs font-extrabold uppercase tracking-wide text-white shadow-sm transition hover:bg-emerald-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 md:inline-flex"
           >
-            <MessageCircle className="h-4 w-4" /> Get Quote
+            <MessageCircle className="h-4 w-4" /> WhatsApp Quote
           </a>
           <button
             type="button"

@@ -71,7 +71,7 @@ export default function BookingModal({ isOpen, closeModal, initialService }: Boo
 
     return (
         <Transition appear show={isOpen} as={Fragment}>
-            <Dialog as="div" className="relative z-50" onClose={closeModal}>
+            <Dialog as="div" className="relative z-50 font-sans" onClose={closeModal}>
                 <Transition.Child
                     as={Fragment}
                     enter="ease-out duration-300"
@@ -95,7 +95,7 @@ export default function BookingModal({ isOpen, closeModal, initialService }: Boo
                             leaveFrom="opacity-100 scale-100"
                             leaveTo="opacity-0 scale-95"
                         >
-                            <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                            <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-5 text-left align-middle shadow-xl transition-all sm:p-6">
                                 <div className="flex justify-between items-center mb-4">
                                     <Dialog.Title
                                         as="h3"
@@ -103,7 +103,12 @@ export default function BookingModal({ isOpen, closeModal, initialService }: Boo
                                     >
                                         Book a Service
                                     </Dialog.Title>
-                                    <button onClick={closeModal} className="rounded text-slate-400 hover:text-slate-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2">
+                                    <button
+                                        type="button"
+                                        aria-label="Close booking form"
+                                        onClick={closeModal}
+                                        className="grid h-11 w-11 place-items-center rounded text-slate-600 hover:bg-slate-100 hover:text-slate-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2"
+                                    >
                                         <X className="w-5 h-5" />
                                     </button>
                                 </div>
@@ -116,6 +121,7 @@ export default function BookingModal({ isOpen, closeModal, initialService }: Boo
                                         <select
                                             id="booking-service"
                                             aria-invalid={Boolean(errors.service)}
+                                            aria-required="true"
                                             aria-describedby={errors.service ? "booking-service-error" : undefined}
                                             className={inputClass}
                                             value={formData.service}
@@ -151,7 +157,7 @@ export default function BookingModal({ isOpen, closeModal, initialService }: Boo
                                         </p>
                                     </div>
 
-                                    <div className="grid grid-cols-2 gap-4">
+                                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                                         <div>
                                             <label htmlFor="booking-name" className="block text-sm font-medium text-slate-700">
                                                 Your name <span className="text-red-700">*</span>
@@ -159,11 +165,13 @@ export default function BookingModal({ isOpen, closeModal, initialService }: Boo
                                             <input
                                                 id="booking-name"
                                                 type="text"
+                                                autoComplete="name"
                                                 className={inputClass}
                                                 placeholder="Full name"
                                                 value={formData.name}
                                                 onChange={(e) => updateField("name", e.target.value)}
                                                 aria-invalid={Boolean(errors.name)}
+                                                aria-required="true"
                                                 aria-describedby={errors.name ? "booking-name-error" : undefined}
                                             />
                                             {errors.name && (
@@ -179,11 +187,13 @@ export default function BookingModal({ isOpen, closeModal, initialService }: Boo
                                             <input
                                                 id="booking-location"
                                                 type="text"
+                                                autoComplete="address-level2"
                                                 className={inputClass}
                                                 placeholder="Al Ain, Dubai..."
                                                 value={formData.location}
                                                 onChange={(e) => updateField("location", e.target.value)}
                                                 aria-invalid={Boolean(errors.location)}
+                                                aria-required="true"
                                                 aria-describedby={errors.location ? "booking-location-error" : undefined}
                                             />
                                             {errors.location && (

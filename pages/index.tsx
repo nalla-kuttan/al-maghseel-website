@@ -5,10 +5,9 @@ import Footer from "../components/layout/Footer";
 import Hero from "../components/sections/Hero";
 import Services from "../components/sections/Services";
 import About from "../components/sections/About";
-import Testimonials from "../components/sections/Testimonials";
+import ServicePromise from "../components/sections/ServicePromise";
 import ServiceAreas from "../components/sections/ServiceAreas";
 import Contact from "../components/sections/Contact";
-import WhatsAppFAB from "../components/ui/WhatsAppFAB";
 import MobileCallBar from "../components/ui/MobileCallBar";
 
 export default function Home() {
@@ -19,11 +18,11 @@ export default function Home() {
         <title>AC Repair, Installation &amp; Maintenance in Al Ain | Al Maghseel Central Air Conditioner Est.</title>
         <meta
           name="description"
-          content="Professional AC installation, repair & maintenance in Al Ain, Abu Dhabi, Dubai, and across the UAE. 24/7 emergency AC repair, certified technicians, and trusted HVAC service since 2006."
+          content="AC installation, repair and maintenance based in Al Ain. Contact Al Maghseel to describe the issue and confirm service availability for your UAE location."
         />
         <meta
           name="keywords"
-          content="AC repair Al Ain, AC installation Al Ain, AC maintenance UAE, central AC service Abu Dhabi, 24/7 AC repair UAE, emergency AC technician Al Ain, split AC installation Abu Dhabi, HVAC service UAE, compressor repair Al Ain, AC gas refill UAE, AC cleaning service Al Ain, AC maintenance near me, AC repair near me, thermostat repair UAE, coil cleaning Abu Dhabi"
+          content="AC repair Al Ain, AC installation Al Ain, AC maintenance UAE, central AC service Abu Dhabi, split AC installation Abu Dhabi, HVAC service UAE, compressor repair Al Ain, AC gas refill UAE, AC cleaning service Al Ain, AC maintenance near me, AC repair near me, thermostat repair UAE, coil cleaning Abu Dhabi"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/logo-al-maghseel.png" />
@@ -36,7 +35,7 @@ export default function Home() {
         <meta property="og:site_name" content="Al Maghseel Central Air Conditioner Est." />
         <meta property="og:locale" content="en_AE" />
         <meta property="og:title" content="AC Repair, Installation &amp; Maintenance in Al Ain | Al Maghseel" />
-        <meta property="og:description" content="24/7 AC repair and HVAC services across the UAE. Fast response in Al Ain &amp; Abu Dhabi. Since 2006." />
+        <meta property="og:description" content="A/C installation, repair and maintenance based in Al Ain. Describe your issue and confirm service availability for your location." />
         <meta property="og:url" content="https://www.almaghseel.com/" />
         <meta property="og:image" content="https://www.almaghseel.com/logo-al-maghseel.png" />
         <meta property="og:image:alt" content="Al Maghseel — AC repair &amp; HVAC services in Al Ain, UAE" />
@@ -44,7 +43,7 @@ export default function Home() {
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="AC Repair, Installation &amp; Maintenance in Al Ain | Al Maghseel" />
-        <meta name="twitter:description" content="Professional AC installation, repair &amp; maintenance in Al Ain and across UAE. 24/7 emergency service." />
+        <meta name="twitter:description" content="A/C installation, repair and maintenance based in Al Ain. Contact the team to confirm service availability." />
         <meta name="twitter:image" content="https://www.almaghseel.com/logo-al-maghseel.png" />
 
         {/* Hreflang (English - UAE) */}
@@ -61,11 +60,10 @@ export default function Home() {
         <Hero />
         <Services />
         <About />
-        <Testimonials />
+        <ServicePromise />
         <ServiceAreas />
         <Contact />
         <Footer />
-        <WhatsAppFAB />
         <MobileCallBar />
       </main>
     </>

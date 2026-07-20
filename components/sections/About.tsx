@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Check, Clock3, Medal, ShieldCheck, Wrench } from "lucide-react";
+import { ArrowRight, Building2, CalendarCheck, Home, MapPin } from "lucide-react";
 import { COMPANY } from "../layout/Header";
 
 const fadeUp = {
@@ -12,10 +12,10 @@ const fadeUp = {
 };
 
 const reasons = [
-    { icon: Medal, title: "Since 2006", text: "established UAE service" },
-    { icon: ShieldCheck, title: "Licensed", text: "and insured technicians" },
-    { icon: Wrench, title: "Genuine parts", text: "for safer repairs" },
-    { icon: Clock3, title: "24/7 response", text: "for urgent cooling issues" },
+    { icon: CalendarCheck, title: "Since 2006", text: "established A/C service" },
+    { icon: MapPin, title: "Al Ain base", text: "location-first dispatch" },
+    { icon: Home, title: "Residential", text: "homes and villas" },
+    { icon: Building2, title: "Commercial", text: "shops and workplaces" },
 ];
 
 export default function About() {
@@ -48,36 +48,32 @@ export default function About() {
                         <div>
                             <div className="text-[10px] font-bold uppercase tracking-wide">Since</div>
                             <div className="text-3xl font-black">{COMPANY.since}</div>
-                            <div className="text-[9px] font-semibold">Trusted A/C Service</div>
+                            <div className="text-[9px] font-semibold">Established A/C Service</div>
                         </div>
                     </div>
                 </div>
 
                 <div>
                     <h2 className="max-w-lg font-heading text-4xl font-black leading-tight tracking-normal text-gray-950">
-                        Cooling Solutions. Built on Trust.
+                        Practical service, with the next step made clear.
                     </h2>
                     <div className="mt-4 flex max-w-xl flex-wrap gap-2 text-sm font-extrabold text-brand-900">
                         <span className="rounded bg-brand-50 px-3 py-2">Since {COMPANY.since}</span>
-                        <span className="rounded bg-brand-50 px-3 py-2">All UAE service coverage</span>
+                        <span className="rounded bg-brand-50 px-3 py-2">Based in Al Ain</span>
                     </div>
                     <p className="mt-5 max-w-xl text-sm font-medium leading-7 text-gray-700">
-                        Al Maghseel Central Air Conditioner Est. has been providing high quality A/C installation,
-                        maintenance and repair services across the UAE since {COMPANY.since}. We are committed to
-                        delivering reliable, efficient and affordable cooling solutions tailored to your needs.
+                        Al Maghseel Central Air Conditioner Est. has handled A/C installation, maintenance and repair
+                        enquiries since {COMPANY.since}. Share your location and the symptoms you see; the team will
+                        confirm service availability and the appropriate next step.
                     </p>
-                    <ul className="mt-6 space-y-3 text-sm font-bold text-gray-800">
-                        {["Experienced & certified technicians", "Transparent pricing before major repairs", "Quality workmanship with genuine materials"].map((item) => (
-                            <li key={item} className="flex items-center gap-3">
-                                <Check className="h-4 w-4 text-brand-800" /> {item}
-                            </li>
-                        ))}
-                    </ul>
+                    <div className="mt-6 max-w-xl border-y border-brand-100 py-5 text-sm font-semibold leading-7 text-gray-800">
+                        For the fastest assessment, include your area, building type, A/C type and whether the problem is cooling, airflow, noise or water leakage.
+                    </div>
                     <a
-                        href={`https://wa.me/${COMPANY.whatsappDigits}?text=${encodeURIComponent("Hello Al Maghseel, I would like to learn more about your A/C services.")}`}
+                        href={`https://wa.me/${COMPANY.whatsappDigits}?text=${encodeURIComponent("Hello Al Maghseel, I need help with an A/C issue. My location is: ")}`}
                         className="mt-8 inline-flex items-center gap-3 rounded bg-brand-900 px-6 py-4 text-xs font-extrabold uppercase tracking-wide text-white transition hover:bg-brand-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2"
                     >
-                        Learn More About Us <ArrowRight className="h-4 w-4" />
+                        Ask About Your A/C <ArrowRight className="h-4 w-4" />
                     </a>
                 </div>
             </motion.div>
