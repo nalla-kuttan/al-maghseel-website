@@ -5,16 +5,16 @@ export const isArabic = (locale: Locale) => locale === "ar";
 export const copy = {
   en: {
     seo: {
-      title: "AC Repair, Installation & Maintenance in Al Ain | Al Maghseel Central Air Conditioner Est.",
-      description: "AC installation, repair and maintenance based in Al Ain. Contact Al Maghseel to describe the issue and confirm service availability for your UAE location.",
-      ogTitle: "AC Repair, Installation & Maintenance in Al Ain | Al Maghseel",
-      ogDescription: "A/C installation, repair and maintenance based in Al Ain. Describe your issue and confirm service availability for your location.",
+      title: "AC Supply, Installation, Repair & Maintenance in Al Ain | Al Maghseel",
+      description: "A/C unit supply and installation, repair and maintenance based in Al Ain. Contact Al Maghseel to discuss the system you need or describe an existing fault.",
+      ogTitle: "AC Supply & Installation in Al Ain | Al Maghseel",
+      ogDescription: "Supply and installation of new A/C systems, plus repair and maintenance from an established Al Ain service business.",
       imageAlt: "Al Maghseel — AC repair and HVAC services in Al Ain, UAE",
     },
     brand: {
       name: "Al Maghseel Central Air Conditioner Est.",
       shortName: "Al Maghseel",
-      tagline: "Installation · Repair · Maintenance",
+      tagline: "Supply & Installation · A/C Service",
       city: "Al Ain, Abu Dhabi",
       location: "Al Ain, UAE",
     },
@@ -31,8 +31,8 @@ export const copy = {
       whatsappMessage: "Hello Al Maghseel, I'd like an A/C service quote.",
     },
     hero: {
-      title: "Central A/C Help, Starting in Al Ain",
-      intro: "Installation, maintenance and repair for homes and businesses. Tell us your location and issue, and we will confirm availability before dispatch.",
+      title: "A/C Supply, Installation & Service in Al Ain",
+      intro: "Supply and installation of new A/C systems, plus maintenance and repair for homes and businesses. Tell us what you need and where the property is located.",
       whatsapp: "WhatsApp for a Quote",
       call: "Call Now",
       whatsappMessage: "Hello Al Maghseel, I need an A/C service quote.",
@@ -50,12 +50,12 @@ export const copy = {
       paths: [
         { cue: "The A/C is not cooling", scope: "Diagnosis for airflow, refrigerant, thermostat, compressor and electrical faults." },
         { cue: "Water is leaking", scope: "Drain clearing, tray and hose inspection, seals and indoor-unit water issues." },
-        { cue: "I need a new system", scope: "Unit selection, mounting, piping, wiring, testing and commissioning." },
+        { cue: "I need A/C supply & installation", scope: "Supply of a suitable unit, mounting, piping, wiring, testing and commissioning." },
         { cue: "I need planned maintenance", scope: "Cleaning, inspection and scheduled support for homes and commercial properties." },
       ],
       pathMessage: (cue: string) => `Hello Al Maghseel, ${cue.toLowerCase()}. My location is: `,
       visitTitle: "How a service visit works",
-      visitIntro: "A clear handoff for urgent repairs, planned maintenance and installations.",
+      visitIntro: "A clear handoff for new-system supply and installation, urgent repairs and planned maintenance.",
       steps: [
         { title: "Share the symptom", text: "Send your location, building type and what the A/C is doing." },
         { title: "Confirm availability", text: "We confirm the visit window and whether any known parts may be needed." },
@@ -66,7 +66,7 @@ export const copy = {
       offerings: [
         { name: "A/C troubleshooting and repair", description: "Diagnosis for cooling, airflow, refrigerant, thermostat, compressor and electrical faults." },
         { name: "A/C water-leak repair", description: "Drain clearing, tray and hose inspection, seals and indoor-unit water issues." },
-        { name: "A/C installation", description: "Unit selection, mounting, piping, wiring, testing and commissioning." },
+        { name: "A/C supply and installation", description: "Supply of a suitable unit, mounting, piping, wiring, testing and commissioning." },
         { name: "Planned A/C maintenance", description: "Cleaning, inspection and scheduled support for homes and commercial properties." },
       ],
     },
@@ -77,7 +77,7 @@ export const copy = {
       established: "Established A/C Service",
       title: "Practical service, with the next step made clear.",
       chips: ["Since 2006", "Based in Al Ain"],
-      text: "Al Maghseel Central Air Conditioner Est. has handled A/C installation, maintenance and repair enquiries since 2006. Share your location and the symptoms you see; the team will confirm service availability and the appropriate next step.",
+      text: "Al Maghseel Central Air Conditioner Est. has handled A/C supply and installation, maintenance and repair enquiries since 2006. Share your location and what you need; the team will confirm availability and the appropriate next step.",
       tip: "For the fastest assessment, include your area, building type, A/C type and whether the problem is cooling, airflow, noise or water leakage.",
       cta: "Ask About Your A/C",
       message: "Hello Al Maghseel, I need help with an A/C issue. My location is: ",
@@ -119,7 +119,7 @@ export const copy = {
     },
     modal: {
       title: "Book a Service", close: "Close booking form", serviceLabel: "What service do you need?", select: "Select a service...",
-      services: ["A/C Installation", "Repair & Maintenance", "Gas Leak/Refill", "Water Leakage", "Compressor/Parts Replacement", "Other"],
+      services: ["A/C Supply & Installation", "Repair & Maintenance", "Gas Leak/Refill", "Water Leakage", "Compressor/Parts Replacement", "Other"],
       issueLabel: "Describe the issue (optional)", issuePlaceholder: "e.g. A/C is not cooling or water is leaking", issueHelp: "Add model, room count or urgency if you know it.",
       nameLabel: "Your name", namePlaceholder: "Full name", locationLabel: "Location", locationPlaceholder: "Al Ain, Dubai...",
       errors: { service: "Choose the service you need.", name: "Add the name we should ask for.", location: "Add your emirate or building area." },
@@ -128,10 +128,10 @@ export const copy = {
       message: (name: string, location: string, service: string, issue: string) => `Hello *Al Maghseel*,\n\nI would like to book a service.\n\nName: ${name}\nLocation: ${location}\nService: ${service}\nIssue: ${issue}`,
     },
     footer: {
-      text: "A/C installation, maintenance and repair enquiries from an established Al Ain service business.",
+      text: "A/C supply and installation, maintenance and repair from an established Al Ain service business.",
       availability: "Service availability is confirmed by location before dispatch.",
       explore: "Explore", links: [["About", "#about"], ["A/C services", "#services"], ["Service locations", "#areas"], ["Contact", "#contact"]],
-      common: "Common needs", needs: ["A/C not cooling", "Water leakage", "New installation", "Planned maintenance"],
+      common: "Common needs", needs: ["A/C not cooling", "Water leakage", "Supply & installation", "Planned maintenance"],
       contact: "Contact", urgent: "Call for urgent support", whatsapp: "WhatsApp quote", email: "Email", office: "Head office",
       rights: "All rights reserved.",
     },
@@ -139,16 +139,16 @@ export const copy = {
   },
   ar: {
     seo: {
-      title: "تصليح وصيانة وتركيب مكيفات في العين | مؤسسة المغسيل",
-      description: "خدمات تصليح وصيانة وتركيب المكيفات المركزية والسبليت في العين للمنازل والمنشآت. أرسل وصف العطل وموقعك لتأكيد توفر موعد الخدمة.",
-      ogTitle: "تصليح وصيانة وتركيب مكيفات في العين | المغسيل",
-      ogDescription: "خدمات المكيفات المركزية والسبليت في العين للمنازل والمنشآت. أرسل موقعك ووصف العطل لتأكيد موعد الخدمة.",
+      title: "توريد وتركيب وتصليح وصيانة مكيفات في العين | مؤسسة المغسيل",
+      description: "توريد وتركيب أنظمة التكييف الجديدة، مع خدمات التصليح والصيانة في العين للمنازل والمنشآت. تواصل معنا لتحديد النظام المطلوب أو وصف العطل.",
+      ogTitle: "توريد وتركيب مكيفات في العين | مؤسسة المغسيل",
+      ogDescription: "توريد وتركيب أنظمة التكييف الجديدة، مع خدمات التصليح والصيانة من مؤسسة خدمية راسخة في العين.",
       imageAlt: "مؤسسة المغسيل لخدمات إصلاح وصيانة المكيفات في العين، الإمارات",
     },
     brand: {
       name: "مؤسسة المغسيل للمكيفات المركزية",
       shortName: "المغسيل",
-      tagline: "تركيب · إصلاح · صيانة",
+      tagline: "توريد وتركيب · خدمات تكييف",
       city: "العين، أبوظبي",
       location: "العين، الإمارات",
     },
@@ -160,8 +160,8 @@ export const copy = {
       whatsappMessage: "مرحباً مؤسسة المغسيل، أود طلب عرض سعر لخدمة تكييف.",
     },
     hero: {
-      title: "تصليح وصيانة وتركيب المكيفات في العين",
-      intro: "خدمة المكيفات المركزية والسبليت للمنازل والمنشآت. أرسل لنا موقعك ووصف العطل، وسنؤكد توفر موعد الخدمة قبل إرسال الفني.",
+      title: "توريد وتركيب وتصليح المكيفات في العين",
+      intro: "توريد وتركيب أنظمة تكييف جديدة، مع خدمات الصيانة والتصليح للمنازل والمنشآت. أرسل لنا ما تحتاج إليه وموقع العقار.",
       whatsapp: "اطلب عرضاً عبر واتساب", call: "اتصل الآن", whatsappMessage: "مرحباً مؤسسة المغسيل، أود طلب عرض سعر لخدمة تكييف.",
       imageAlt: "فنيون يصونون وحدات تكييف على سطح مبنى",
       trust: ["استفسارات عاجلة", "مقرنا في العين", "للمنازل والمنشآت", "منذ 2006"],
@@ -174,11 +174,11 @@ export const copy = {
       paths: [
         { cue: "المكيف لا يبرد", scope: "تشخيص أعطال تدفق الهواء وغاز التبريد والثرموستات والضاغط والكهرباء." },
         { cue: "يوجد تسرب للمياه", scope: "تنظيف مجرى التصريف وفحص الصينية والخراطيم والعوازل ومشكلات الوحدة الداخلية." },
-        { cue: "أحتاج إلى نظام جديد", scope: "اختيار الوحدة والتركيب والتمديدات والتوصيلات والاختبار والتشغيل." },
+        { cue: "أحتاج إلى توريد وتركيب مكيف", scope: "توريد الوحدة المناسبة وتركيبها مع التمديدات والتوصيلات والاختبار والتشغيل." },
         { cue: "أحتاج إلى صيانة دورية", scope: "تنظيف وفحص وصيانة مجدولة للمنازل والعقارات التجارية." },
       ],
       pathMessage: (cue: string) => `مرحباً مؤسسة المغسيل، ${cue}. موقعي هو: `,
-      visitTitle: "كيف تتم زيارة الصيانة؟", visitIntro: "خطوات واضحة للإصلاحات العاجلة والصيانة الدورية وأعمال التركيب.",
+      visitTitle: "كيف تبدأ الخدمة؟", visitIntro: "خطوات واضحة لتوريد وتركيب نظام جديد أو تنفيذ الإصلاحات والصيانة الدورية.",
       steps: [
         { title: "صف المشكلة", text: "أرسل موقعك ونوع المبنى وما يحدث في المكيف." },
         { title: "تأكيد الموعد", text: "نؤكد وقت الزيارة وما إذا كانت هناك قطع معروفة قد تكون مطلوبة." },
@@ -189,13 +189,13 @@ export const copy = {
       offerings: [
         { name: "تشخيص وإصلاح المكيفات", description: "تشخيص أعطال التبريد وتدفق الهواء وغاز التبريد والثرموستات والضاغط والكهرباء." },
         { name: "إصلاح تسرب مياه المكيف", description: "تنظيف مجرى التصريف وفحص الصينية والخراطيم والعوازل ومشكلات الوحدة الداخلية." },
-        { name: "تركيب المكيفات", description: "اختيار الوحدة والتركيب والتمديدات والتوصيلات والاختبار والتشغيل." },
+        { name: "توريد وتركيب المكيفات", description: "توريد الوحدة المناسبة وتركيبها مع التمديدات والتوصيلات والاختبار والتشغيل." },
         { name: "الصيانة الدورية للمكيفات", description: "تنظيف وفحص وصيانة مجدولة للمنازل والعقارات التجارية." },
       ],
     },
     seoContent: {
       title: "خدمات مكيفات في العين للمنازل والمنشآت",
-      intro: "توفر مؤسسة المغسيل خدمات فحص وتصليح وصيانة وتركيب المكيفات من مقرها في مدينة العين. نبدأ بتسجيل نوع المكيف والعطل والموقع، ثم نؤكد توفر الزيارة قبل إرسال الفني.",
+      intro: "توفر مؤسسة المغسيل خدمات توريد وتركيب أنظمة التكييف الجديدة، إضافة إلى الفحص والتصليح والصيانة من مقرها في مدينة العين.",
       services: [
         {
           title: "تصليح المكيفات في العين",
@@ -206,8 +206,8 @@ export const copy = {
           text: "تنظيف وفحص وحدات التكييف المركزية والسبليت، بما يشمل الفلاتر وملفات المكثف ومجاري التصريف والمراوح والأجزاء الداخلية حسب حالة الجهاز.",
         },
         {
-          title: "تركيب المكيفات المركزية والسبليت",
-          text: "دعم اختيار الوحدة المناسبة والتركيب والتمديدات والتوصيلات والاختبار والتشغيل للمنازل والفلل والمحلات ومواقع العمل.",
+          title: "توريد وتركيب المكيفات المركزية والسبليت",
+          text: "توريد الوحدة المناسبة وتركيبها مع التمديدات والتوصيلات والاختبار والتشغيل للمنازل والفلل والمحلات ومواقع العمل.",
         },
       ],
       faqTitle: "أسئلة شائعة عن خدمة المكيفات",
@@ -230,7 +230,7 @@ export const copy = {
       reasons: [{ title: "منذ 2006", text: "خبرة راسخة في التكييف" }, { title: "مقرنا في العين", text: "تنسيق الزيارة حسب الموقع" }, { title: "خدمات سكنية", text: "للمنازل والفلل" }, { title: "خدمات تجارية", text: "للمحلات ومواقع العمل" }],
       imageAlt: "صف من وحدات التكييف التجارية المركبة", since: "منذ", established: "خبرة راسخة في التكييف",
       title: "خدمة عملية، وخطوة تالية واضحة.", chips: ["منذ 2006", "مقرنا في العين"],
-      text: "تستقبل مؤسسة المغسيل للمكيفات المركزية طلبات تركيب وصيانة وإصلاح المكيفات منذ عام 2006. أرسل موقعك والأعراض التي تلاحظها، وسيؤكد الفريق توفر الخدمة والخطوة المناسبة التالية.",
+      text: "تستقبل مؤسسة المغسيل للمكيفات المركزية طلبات توريد وتركيب وصيانة وإصلاح المكيفات منذ عام 2006. أرسل موقعك وما تحتاج إليه، وسيؤكد الفريق توفر الخدمة والخطوة المناسبة التالية.",
       tip: "لتقييم أسرع، أرسل اسم منطقتك ونوع المبنى ونوع المكيف، وحدد ما إذا كانت المشكلة في التبريد أو تدفق الهواء أو الضوضاء أو تسرب المياه.",
       cta: "اسألنا عن مكيفك", message: "مرحباً مؤسسة المغسيل، أحتاج مساعدة في مشكلة تكييف. موقعي هو: ",
     },
@@ -258,7 +258,7 @@ export const copy = {
     },
     modal: {
       title: "احجز خدمة", close: "إغلاق نموذج الحجز", serviceLabel: "ما الخدمة التي تحتاج إليها؟", select: "اختر خدمة...",
-      services: ["تركيب مكيف", "إصلاح وصيانة", "تسرب الغاز أو إعادة التعبئة", "تسرب المياه", "استبدال الضاغط أو القطع", "خدمة أخرى"],
+      services: ["توريد وتركيب مكيف", "إصلاح وصيانة", "تسرب الغاز أو إعادة التعبئة", "تسرب المياه", "استبدال الضاغط أو القطع", "خدمة أخرى"],
       issueLabel: "صف المشكلة (اختياري)", issuePlaceholder: "مثال: المكيف لا يبرد أو يوجد تسرب للمياه", issueHelp: "أضف الطراز أو عدد الغرف أو مدى الاستعجال إن كنت تعرفه.",
       nameLabel: "اسمك", namePlaceholder: "الاسم الكامل", locationLabel: "الموقع", locationPlaceholder: "العين، دبي...",
       errors: { service: "اختر الخدمة التي تحتاج إليها.", name: "أضف الاسم الذي ينبغي أن نسأل عنه.", location: "أضف الإمارة أو منطقة المبنى." },
@@ -267,9 +267,9 @@ export const copy = {
       message: (name: string, location: string, service: string, issue: string) => `مرحباً *مؤسسة المغسيل*،\n\nأود حجز خدمة.\n\nالاسم: ${name}\nالموقع: ${location}\nالخدمة: ${service}\nالمشكلة: ${issue}`,
     },
     footer: {
-      text: "طلبات تركيب وصيانة وإصلاح المكيفات لدى مؤسسة خدمية راسخة في العين.", availability: "يتم تأكيد توفر الخدمة حسب الموقع قبل إرسال الفني.",
+      text: "توريد وتركيب وصيانة وإصلاح المكيفات لدى مؤسسة خدمية راسخة في العين.", availability: "يتم تأكيد توفر الخدمة حسب الموقع قبل إرسال الفني.",
       explore: "استكشف", links: [["من نحن", "#about"], ["خدمات التكييف", "#services"], ["مناطق الخدمة", "#areas"], ["تواصل معنا", "#contact"]],
-      common: "احتياجات شائعة", needs: ["المكيف لا يبرد", "تسرب المياه", "تركيب جديد", "صيانة دورية"],
+      common: "احتياجات شائعة", needs: ["المكيف لا يبرد", "تسرب المياه", "توريد وتركيب", "صيانة دورية"],
       contact: "تواصل معنا", urgent: "اتصل للدعم العاجل", whatsapp: "عرض سعر عبر واتساب", email: "البريد الإلكتروني", office: "المكتب الرئيسي", rights: "جميع الحقوق محفوظة.",
     },
     mobile: { call: "اتصل الآن", whatsapp: "عرض سعر عبر واتساب" },

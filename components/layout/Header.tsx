@@ -5,7 +5,7 @@ import { getCopy, Locale } from "../../lib/i18n";
 
 export const COMPANY = {
   name: "Al Maghseel Central Air Conditioner Est.",
-  tagline: "Installation · Repair · Maintenance",
+  tagline: "Supply & Installation · A/C Service",
   city: "Al Ain, Abu Dhabi",
   region: "UAE coverage by confirmation",
   years: 19,
