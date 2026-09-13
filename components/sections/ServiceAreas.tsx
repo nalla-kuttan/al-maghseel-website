@@ -17,7 +17,7 @@ export default function ServiceAreas({ locale }: { locale: Locale }) {
           <p className="mt-4 max-w-xl text-base font-medium leading-7 text-gray-700">{t.text}</p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <a href={`tel:${COMPANY.phone}`} className="inline-flex min-h-12 items-center justify-center gap-2 rounded bg-brand-900 px-5 py-3 text-xs font-extrabold text-white transition hover:bg-brand-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2"><Phone className="h-4 w-4" />{t.call} <bdi>{COMPANY.displayPhone}</bdi></a>
-            <a href={`https://wa.me/${COMPANY.whatsappDigits}?text=${encodeURIComponent(t.message)}`} className="inline-flex min-h-12 items-center justify-center gap-2 rounded border border-emerald-700 px-5 py-3 text-xs font-extrabold text-emerald-800 transition hover:bg-emerald-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2"><MessageCircle className="h-4 w-4" />{t.whatsapp}</a>
+            <a href={COMPANY.whatsappUrl} className="inline-flex min-h-12 items-center justify-center gap-2 rounded border border-emerald-700 px-5 py-3 text-xs font-extrabold text-emerald-800 transition hover:bg-emerald-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2"><MessageCircle className="h-4 w-4" />{t.whatsapp}</a>
           </div>
         </motion.div>
         <motion.div className="border-y border-brand-100 py-3" {...fadeUp}>

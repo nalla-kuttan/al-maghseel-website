@@ -16,7 +16,8 @@ export default function SEO({ locale }: { locale: Locale }) {
         "@type": "HVACBusiness", "@id": businessId, name: COMPANY.name, alternateName: getCopy("ar").brand.name,
         url: "https://www.almaghseel.com/", logo: "https://www.almaghseel.com/logo-al-maghseel.png", image: [heroImage, "https://www.almaghseel.com/logo-al-maghseel.png"],
         description: t.seo.description, telephone: COMPANY.phone, email: COMPANY.email,
-        address: { "@type": "PostalAddress", addressLocality: locale === "ar" ? "العين" : "Al Ain", addressRegion: locale === "ar" ? "أبوظبي" : "Abu Dhabi", addressCountry: "AE" },
+        hasMap: COMPANY.mapsUrl,
+        address: { "@type": "PostalAddress", streetAddress: COMPANY.streetAddress, addressLocality: locale === "ar" ? "العين" : "Al Ain", addressRegion: locale === "ar" ? "أبوظبي" : "Abu Dhabi", addressCountry: "AE" },
         areaServed: t.areas.names.map((name) => ({ "@type": "Place", name })), sameAs: [COMPANY.facebook, COMPANY.instagram], foundingDate: `${COMPANY.since}-01-01`,
         knowsLanguage: ["ar", "en"], slogan: t.brand.tagline,
         hasOfferCatalog: {

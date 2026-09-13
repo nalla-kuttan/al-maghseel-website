@@ -7,12 +7,16 @@ export const COMPANY = {
   name: "Al Maghseel Central Air Conditioner Est.",
   tagline: "Supply & Installation · A/C Service",
   city: "Al Ain, Abu Dhabi",
+  streetAddress: "32 Al Wakalat 7 St, Industrial Area, Al Aras",
+  address: "32 Al Wakalat 7 St, Industrial Area, Al Aras, Abu Dhabi, UAE",
+  mapsUrl: "https://maps.app.goo.gl/d7yFxW5A99gehHrK7",
   region: "UAE coverage by confirmation",
   years: 19,
   since: 2006,
   phone: "+971506734821",
   displayPhone: "050 673 4821",
-  whatsappDigits: "00971506734821",
+  whatsappDigits: "971565801921",
+  whatsappUrl: "https://wa.me/message/KFSOXCXKJFEDD1",
   email: "service@almaghseel.com",
   facebook: "https://www.facebook.com/p/Al-Maghseel-Central-Air-Conditioner-Est-100076006452976/",
   instagram: "https://www.instagram.com/maghseel/?hl=am-et",
@@ -21,7 +25,7 @@ export const COMPANY = {
 export default function Header({ locale }: { locale: Locale }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const t = getCopy(locale);
-  const whatsappHref = `https://wa.me/${COMPANY.whatsappDigits}?text=${encodeURIComponent(t.header.whatsappMessage)}`;
+  const whatsappHref = COMPANY.whatsappUrl;
 
   return (
     <header className="sticky top-0 z-40 w-full bg-white shadow-[0_8px_30px_rgba(64,16,16,0.08)]">
@@ -40,7 +44,7 @@ export default function Header({ locale }: { locale: Locale }) {
       </div>
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:py-4">
         <a href={locale === "ar" ? "/ar/" : "/"} className="flex items-center gap-3">
-          <Image src="/logo-al-maghseel.png" alt={t.header.logoAlt} width={64} height={64} className="object-contain" priority />
+          <Image src="/logo.webp" alt={t.header.logoAlt} width={64} height={64} className="object-contain" priority />
           <div className="leading-tight">
             <div className="max-w-[220px] text-sm font-extrabold text-brand-950 md:text-base">{t.brand.shortName}</div>
             <div className="text-[11px] font-semibold text-gray-600 md:text-xs">{t.brand.tagline}</div>

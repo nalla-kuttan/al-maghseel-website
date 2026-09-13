@@ -14,7 +14,7 @@ export default function Hero({ locale }: { locale: Locale }) {
   return (
     <section className="relative overflow-hidden bg-white">
       <div className={`absolute inset-y-0 hidden w-[53%] md:block ${isAr ? "left-0" : "right-0"}`}>
-        <Image src="/hvac-hero-rooftop-service.jpg" alt={t.imageAlt} fill className="object-cover" priority />
+        <Image src="/hvac-hero-rooftop-service.webp" alt={t.imageAlt} fill className="object-cover" priority />
         <div className={`absolute inset-0 ${isAr ? "bg-gradient-to-l" : "bg-gradient-to-r"} from-white via-white/35 to-transparent`} />
         <div className={`absolute inset-y-0 w-28 ${isAr ? "right-0 bg-gradient-to-l" : "left-0 bg-gradient-to-r"} from-white to-transparent`} />
       </div>
@@ -23,7 +23,7 @@ export default function Hero({ locale }: { locale: Locale }) {
           <h1 className="font-heading text-[42px] font-black leading-[1.08] tracking-normal text-gray-950 sm:text-6xl lg:text-7xl">{t.title}</h1>
           <p className="mt-6 max-w-xl text-base font-medium leading-7 text-gray-700 md:text-lg">{t.intro}</p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a href={`https://wa.me/${COMPANY.whatsappDigits}?text=${encodeURIComponent(t.whatsappMessage)}`} className="inline-flex items-center justify-center gap-3 rounded bg-emerald-700 px-7 py-4 text-xs font-extrabold text-white shadow-[0_8px_16px_rgba(4,120,87,0.2)] transition hover:bg-emerald-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2">
+            <a href={COMPANY.whatsappUrl} className="inline-flex items-center justify-center gap-3 rounded bg-emerald-700 px-7 py-4 text-xs font-extrabold text-white shadow-[0_8px_16px_rgba(4,120,87,0.2)] transition hover:bg-emerald-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2">
               {t.whatsapp} <DirectionArrow className="h-4 w-4" />
             </a>
             <a href={`tel:${COMPANY.phone}`} className="inline-flex items-center justify-center gap-3 rounded border border-brand-700 px-7 py-4 text-xs font-extrabold text-brand-900 transition hover:bg-brand-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2">
@@ -38,7 +38,7 @@ export default function Hero({ locale }: { locale: Locale }) {
           </div>
         </div>
         <div className="relative mt-10 md:mt-0">
-          <div className="relative mx-auto aspect-[4/3] w-full overflow-hidden rounded md:hidden"><Image src="/hvac-hero-rooftop-service.jpg" alt={t.imageAlt} fill className="object-cover" priority /></div>
+          <div className="relative mx-auto aspect-[4/3] w-full overflow-hidden rounded md:hidden"><Image src="/hvac-hero-rooftop-service.webp" alt={t.imageAlt} fill className="object-cover" priority /></div>
           <div className={`absolute bottom-6 hidden w-60 rounded-md bg-white p-6 shadow-[0_18px_45px_rgba(36,6,6,0.18)] md:block ${isAr ? "left-5" : "right-5"}`}>
             <div className="flex gap-4">
               <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-brand-900 text-white"><Phone className="h-6 w-6" /></div>
