@@ -1,9 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { useInView } from "framer-motion";
 
-/** Animated Counter */
+/**
+ * Animated Counter — counts up from 0 to target once it scrolls into view.
+ * Renders `target` by default so static export / no-JS clients see the real
+ * number; the count-from-zero motion only kicks in for capable, in-view clients.
+ */
 export default function Counter({ target, duration = 1.2 }: { target: number; duration?: number }) {
-    const [count, setCount] = useState(0);
+    const ref = useRef<HTMLSpanElement>(null);
+    const isInView = useInView(ref, { once: true, amount: 0.6 });
+    const [count, setCount] = useState(target);
+
     useEffect(() => {
+        if (!isInView) return;
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            setCount(target);
+            return;
+        }
         let start = 0;
         const total = Math.max(1, Math.floor(duration * 60));
         const step = () => {
@@ -13,6 +26,7 @@ export default function Counter({ target, duration = 1.2 }: { target: number; du
             if (start < total) requestAnimationFrame(step);
         };
         requestAnimationFrame(step);
-    }, [target, duration]);
-    return <span>{count}</span>;
+    }, [isInView, target, duration]);
+
+    return <span ref={ref}>{count}</span>;
 }

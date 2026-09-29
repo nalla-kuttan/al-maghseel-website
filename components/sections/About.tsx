@@ -1,16 +1,24 @@
 import Image from "next/image";
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Building2, CalendarCheck, Home, MapPin } from "lucide-react";
 import { COMPANY } from "../layout/Header";
+import Counter from "../ui/Counter";
 import { getCopy, Locale } from "../../lib/i18n";
 
-const fadeUp = { initial: { opacity: 1, y: 0 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true, amount: 0.2 }, transition: { duration: 0.6 } };
 const reasonIcons = [CalendarCheck, MapPin, Home, Building2];
+const EASE_OUT_EXPO = [0.16, 1, 0.3, 1] as const;
 
 export default function About({ locale }: { locale: Locale }) {
   const t = getCopy(locale).about;
   const DirectionArrow = locale === "ar" ? ArrowLeft : ArrowRight;
+  const prefersReducedMotion = useReducedMotion();
+  const fadeUp = {
+    initial: { opacity: 1, y: prefersReducedMotion ? 0 : 20 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, amount: 0.2 },
+    transition: { duration: prefersReducedMotion ? 0 : 0.7, ease: EASE_OUT_EXPO },
+  };
   return (
     <section id="about" className="bg-white">
       <div className="border-y border-brand-100 bg-brand-50">
@@ -22,7 +30,7 @@ export default function About({ locale }: { locale: Locale }) {
         <div className="relative overflow-hidden rounded-md">
           <Image src="/hvac-commercial-units.webp" alt={t.imageAlt} width={900} height={620} className="aspect-[1.55/1] w-full object-cover" />
           <div className="absolute bottom-8 start-8 grid h-28 w-28 place-items-center rounded-full bg-brand-900 text-center text-white shadow-xl ring-4 ring-white">
-            <div><div className="text-[10px] font-bold">{t.since}</div><div className="text-3xl font-black"><bdi>{COMPANY.since}</bdi></div><div className="text-[9px] font-semibold">{t.established}</div></div>
+            <div><div className="text-3xl font-black"><bdi><Counter target={COMPANY.years} />+</bdi></div><div className="mt-1 text-[9px] font-semibold leading-tight">{t.yearsLabel}</div></div>
           </div>
         </div>
         <div>

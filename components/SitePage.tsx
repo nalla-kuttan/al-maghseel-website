@@ -8,6 +8,7 @@ import ArabicSeoContent from "./sections/ArabicSeoContent";
 import About from "./sections/About";
 import ServicePromise from "./sections/ServicePromise";
 import ServiceAreas from "./sections/ServiceAreas";
+import Testimonials from "./sections/Testimonials";
 import Contact from "./sections/Contact";
 import MobileCallBar from "./ui/MobileCallBar";
 import { getCopy, Locale } from "../lib/i18n";
@@ -24,7 +25,7 @@ export default function SitePage({ locale }: { locale: Locale }) {
       <link rel="alternate" hrefLang="en-ae" href="https://www.almaghseel.com/" /><link rel="alternate" hrefLang="ar-ae" href="https://www.almaghseel.com/ar/" /><link rel="alternate" hrefLang="x-default" href="https://www.almaghseel.com/" /><link rel="preconnect" href="https://wa.me" /><link rel="dns-prefetch" href="https://wa.me" />
     </Head>
     <main className={`text-gray-900 ${isAr ? "arabic-site" : ""}`} lang={isAr ? "ar-AE" : "en-AE"} dir={isAr ? "rtl" : "ltr"}>
-      <SEO locale={locale} /><Header locale={locale} /><Hero locale={locale} /><Services locale={locale} />{isAr && <ArabicSeoContent />}<About locale={locale} /><ServicePromise locale={locale} /><ServiceAreas locale={locale} /><Contact locale={locale} /><Footer locale={locale} /><MobileCallBar locale={locale} />
+      <SEO locale={locale} /><Header locale={locale} /><Hero locale={locale} /><Services locale={locale} />{isAr && <ArabicSeoContent />}<About locale={locale} /><ServicePromise locale={locale} /><ServiceAreas locale={locale} /><Testimonials locale={locale} /><Contact locale={locale} /><Footer locale={locale} /><MobileCallBar locale={locale} />
     </main>
   </>;
 }
