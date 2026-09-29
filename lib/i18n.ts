@@ -75,6 +75,7 @@ export const copy = {
       imageAlt: "Commercial HVAC units installed in a row",
       since: "Since",
       established: "Established A/C Service",
+      yearsLabel: "Years of A/C Service",
       title: "Practical service, with the next step made clear.",
       chips: ["Since 2006", "Based in Al Ain"],
       text: "Al Maghseel Central Air Conditioner Est. has handled A/C supply and installation, maintenance and repair enquiries since 2006. Share your location and what you need; the team will confirm availability and the appropriate next step.",
@@ -101,6 +102,18 @@ export const copy = {
       message: "Hello Al Maghseel, I want to confirm A/C service coverage for my location.",
       names: ["Al Ain", "Abu Dhabi", "Dubai", "Sharjah", "Ajman", "Ras Al Khaimah", "Umm Al Quwain", "Fujairah"],
       highlights: ["Based in Al Ain", "Visit availability confirmed by location", "Residential, commercial and industrial systems"],
+    },
+    testimonials: {
+      title: "What customers say after the visit.",
+      intro: "Real feedback from Google, not written by us.",
+      rating: "4.8",
+      ratingText: "from 6 verified reviews on Google",
+      linkLabel: "Read the reviews on Google",
+      quotes: [
+        { name: "Praveen N.", text: "I called for AC maintenance and it was a good experience — they were knowledgeable and delivered the service quickly, even at midnight." },
+        { name: "Albin M.", text: "Excellent, timely service, even on a holiday! The team were very knowledgeable, friendly and polite." },
+        { name: "Shebin A.", text: "Friendly team and delivers on time. Excellent service — keep up the good work." },
+      ],
     },
     contact: {
       title: "Tell us what the A/C is doing.",
@@ -228,7 +241,7 @@ export const copy = {
     },
     about: {
       reasons: [{ title: "منذ 2006", text: "خبرة راسخة في التكييف" }, { title: "مقرنا في العين", text: "تنسيق الزيارة حسب الموقع" }, { title: "خدمات سكنية", text: "للمنازل والفلل" }, { title: "خدمات تجارية", text: "للمحلات ومواقع العمل" }],
-      imageAlt: "صف من وحدات التكييف التجارية المركبة", since: "منذ", established: "خبرة راسخة في التكييف",
+      imageAlt: "صف من وحدات التكييف التجارية المركبة", since: "منذ", established: "خبرة راسخة في التكييف", yearsLabel: "سنوات خبرة في التكييف",
       title: "خدمة عملية، وخطوة تالية واضحة.", chips: ["منذ 2006", "مقرنا في العين"],
       text: "تستقبل مؤسسة المغسيل للمكيفات المركزية طلبات توريد وتركيب وصيانة وإصلاح المكيفات منذ عام 2006. أرسل موقعك وما تحتاج إليه، وسيؤكد الفريق توفر الخدمة والخطوة المناسبة التالية.",
       tip: "لتقييم أسرع، أرسل اسم منطقتك ونوع المبنى ونوع المكيف، وحدد ما إذا كانت المشكلة في التبريد أو تدفق الهواء أو الضوضاء أو تسرب المياه.",
@@ -248,6 +261,18 @@ export const copy = {
       call: "اتصل", whatsapp: "تحقق عبر واتساب", message: "مرحباً مؤسسة المغسيل، أود التأكد من توفر خدمة التكييف في موقعي.",
       names: ["العين", "أبوظبي", "دبي", "الشارقة", "عجمان", "رأس الخيمة", "أم القيوين", "الفجيرة"],
       highlights: ["مقرنا في العين", "تأكيد توفر الزيارة حسب الموقع", "أنظمة سكنية وتجارية وصناعية"],
+    },
+    testimonials: {
+      title: "ماذا يقول العملاء بعد الزيارة.",
+      intro: "آراء حقيقية من جوجل، وليست من كتابتنا.",
+      rating: "4.8",
+      ratingText: "من 6 مراجعات موثقة على جوجل",
+      linkLabel: "اقرأ المراجعات على جوجل",
+      quotes: [
+        { name: "برافين ن.", text: "طلبت خدمة صيانة تكييف، وكانت تجربة جيدة. كان الفريق على دراية تامة بعمله ووصلت الخدمة بسرعة حتى في منتصف الليل." },
+        { name: "ألبين م.", text: "خدمة ممتازة وسريعة، حتى في يوم عطلة رسمية! كان الفريق على دراية كبيرة، وودوداً، ومهذباً للغاية." },
+        { name: "شبين أ.", text: "فريق ودود ويلتزم بالمواعيد.. خدمة ممتازة.. استمروا على هذا المستوى." },
+      ],
     },
     contact: {
       title: "أخبرنا ما الذي يحدث في المكيف.", text: "جهّز طلب خدمة مختصراً، أو اتصل إذا كان العطل عاجلاً. سنؤكد توفر الخدمة في موقعك قبل ترتيب الزيارة.",
