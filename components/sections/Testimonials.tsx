@@ -22,14 +22,14 @@ export default function Testimonials({ locale }: { locale: Locale }) {
           <h2 className="max-w-md font-heading text-3xl font-black leading-tight text-gray-950 md:text-5xl">{t.title}</h2>
           <p className="mt-4 max-w-md text-base font-medium leading-7 text-gray-700">{t.intro}</p>
           <div className="mt-7 flex items-center gap-1 text-brand-800" aria-hidden="true">
-            {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="h-5 w-5 fill-current" />)}
+            {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="h-5 w-5 fill-current" aria-hidden="true" />)}
           </div>
           <div className="mt-2 flex items-baseline gap-2">
             <span className="text-3xl font-black text-gray-950">{t.rating}</span>
             <span className="text-sm font-semibold text-gray-700">{t.ratingText}</span>
           </div>
           <a href={COMPANY.mapsUrl} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center gap-2 rounded-sm text-sm font-extrabold text-brand-800 underline decoration-brand-200 underline-offset-4 transition hover:text-brand-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2">
-            {t.linkLabel} <ExternalLink className="h-4 w-4" />
+            {t.linkLabel} <ExternalLink className="h-4 w-4" aria-hidden="true" />
           </a>
         </div>
         <ul className="divide-y divide-brand-100 border-y border-brand-100">

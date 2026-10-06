@@ -24,8 +24,13 @@ export default function SitePage({ locale }: { locale: Locale }) {
       <meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content={t.seo.ogTitle} /><meta name="twitter:description" content={t.seo.ogDescription} /><meta name="twitter:image" content="https://www.almaghseel.com/hvac-hero-rooftop-service.jpg" /><meta name="twitter:image:alt" content={t.seo.imageAlt} />
       <link rel="alternate" hrefLang="en-ae" href="https://www.almaghseel.com/" /><link rel="alternate" hrefLang="ar-ae" href="https://www.almaghseel.com/ar/" /><link rel="alternate" hrefLang="x-default" href="https://www.almaghseel.com/" /><link rel="preconnect" href="https://wa.me" /><link rel="dns-prefetch" href="https://wa.me" />
     </Head>
-    <main className={`text-gray-900 ${isAr ? "arabic-site" : ""}`} lang={isAr ? "ar-AE" : "en-AE"} dir={isAr ? "rtl" : "ltr"}>
-      <SEO locale={locale} /><Header locale={locale} /><Hero locale={locale} /><Services locale={locale} />{isAr && <ArabicSeoContent />}<About locale={locale} /><ServicePromise locale={locale} /><ServiceAreas locale={locale} /><Testimonials locale={locale} /><Contact locale={locale} /><Footer locale={locale} /><MobileCallBar locale={locale} />
-    </main>
+    <div className={`text-gray-900 ${isAr ? "arabic-site" : ""}`} lang={isAr ? "ar-AE" : "en-AE"} dir={isAr ? "rtl" : "ltr"}>
+      <a href="#main-content" className="sr-only z-[90] rounded bg-brand-900 px-4 py-3 text-sm font-extrabold text-white focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-200">{t.header.skip}</a>
+      <SEO locale={locale} /><Header locale={locale} />
+      <main id="main-content" tabIndex={-1} className="focus:outline-none">
+        <Hero locale={locale} /><Services locale={locale} />{isAr && <ArabicSeoContent />}<About locale={locale} /><ServicePromise locale={locale} /><ServiceAreas locale={locale} /><Testimonials locale={locale} /><Contact locale={locale} />
+      </main>
+      <Footer locale={locale} /><MobileCallBar locale={locale} />
+    </div>
   </>;
 }

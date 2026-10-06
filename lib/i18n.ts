@@ -20,6 +20,7 @@ export const copy = {
     },
     language: { label: "العربية", href: "/ar/", aria: "View this website in Arabic" },
     header: {
+      skip: "Skip to content",
       urgent: "Urgent support",
       nav: [["Home", "#"], ["About Us", "#about"], ["Services", "#services"], ["Service Areas", "#areas"], ["Contact Us", "#contact"]],
       quote: "WhatsApp Quote",
@@ -131,10 +132,10 @@ export const copy = {
       message: "Hello Al Maghseel, I would like an A/C service quote.",
     },
     modal: {
-      title: "Book a Service", close: "Close booking form", serviceLabel: "What service do you need?", select: "Select a service...",
+      title: "Book a Service", close: "Close booking form", serviceLabel: "What service do you need?", select: "Select a service…",
       services: ["A/C Supply & Installation", "Repair & Maintenance", "Gas Leak/Refill", "Water Leakage", "Compressor/Parts Replacement", "Other"],
-      issueLabel: "Describe the issue (optional)", issuePlaceholder: "e.g. A/C is not cooling or water is leaking", issueHelp: "Add model, room count or urgency if you know it.",
-      nameLabel: "Your name", namePlaceholder: "Full name", locationLabel: "Location", locationPlaceholder: "Al Ain, Dubai...",
+      issueLabel: "Describe the issue (optional)", issuePlaceholder: "e.g. A/C is not cooling or water is leaking…", issueHelp: "Add model, room count or urgency if you know it.",
+      nameLabel: "Your name", namePlaceholder: "Full name…", locationLabel: "Location", locationPlaceholder: "Al Ain, Dubai…",
       errors: { service: "Choose the service you need.", name: "Add the name we should ask for.", location: "Add your emirate or building area." },
       notSpecified: "Not specified", submit: "Continue to WhatsApp", openError: "WhatsApp did not open. Please call", orEmail: "or email",
       help: "We will open WhatsApp with your details pre-filled. If it does not open, call {phone} or email {email}.",
@@ -167,6 +168,7 @@ export const copy = {
     },
     language: { label: "English", href: "/", aria: "View this website in English" },
     header: {
+      skip: "انتقل إلى المحتوى",
       urgent: "دعم للحالات العاجلة",
       nav: [["الرئيسية", "#"], ["من نحن", "#about"], ["خدماتنا", "#services"], ["مناطق الخدمة", "#areas"], ["تواصل معنا", "#contact"]],
       quote: "اطلب عرضاً عبر واتساب", call: "اتصل", whatsapp: "واتساب", openMenu: "فتح القائمة", closeMenu: "إغلاق القائمة", logoAlt: "شعار مؤسسة المغسيل",
@@ -282,10 +284,10 @@ export const copy = {
       message: "مرحباً مؤسسة المغسيل، أود طلب عرض سعر لخدمة تكييف.",
     },
     modal: {
-      title: "احجز خدمة", close: "إغلاق نموذج الحجز", serviceLabel: "ما الخدمة التي تحتاج إليها؟", select: "اختر خدمة...",
+      title: "احجز خدمة", close: "إغلاق نموذج الحجز", serviceLabel: "ما الخدمة التي تحتاج إليها؟", select: "اختر خدمة…",
       services: ["توريد وتركيب مكيف", "إصلاح وصيانة", "تسرب الغاز أو إعادة التعبئة", "تسرب المياه", "استبدال الضاغط أو القطع", "خدمة أخرى"],
-      issueLabel: "صف المشكلة (اختياري)", issuePlaceholder: "مثال: المكيف لا يبرد أو يوجد تسرب للمياه", issueHelp: "أضف الطراز أو عدد الغرف أو مدى الاستعجال إن كنت تعرفه.",
-      nameLabel: "اسمك", namePlaceholder: "الاسم الكامل", locationLabel: "الموقع", locationPlaceholder: "العين، دبي...",
+      issueLabel: "صف المشكلة (اختياري)", issuePlaceholder: "مثال: المكيف لا يبرد أو يوجد تسرب للمياه…", issueHelp: "أضف الطراز أو عدد الغرف أو مدى الاستعجال إن كنت تعرفه.",
+      nameLabel: "اسمك", namePlaceholder: "الاسم الكامل…", locationLabel: "الموقع", locationPlaceholder: "العين، دبي…",
       errors: { service: "اختر الخدمة التي تحتاج إليها.", name: "أضف الاسم الذي ينبغي أن نسأل عنه.", location: "أضف الإمارة أو منطقة المبنى." },
       notSpecified: "غير محدد", submit: "المتابعة إلى واتساب", openError: "تعذر فتح واتساب. يرجى الاتصال على", orEmail: "أو مراسلتنا على",
       help: "سنفتح واتساب مع تعبئة بياناتك مسبقاً. إذا لم يفتح، اتصل على {phone} أو راسل {email}.",

@@ -16,14 +16,14 @@ export default function Services({ locale }: { locale: Locale }) {
           <div>
             <h2 className="max-w-md font-heading text-3xl font-black leading-tight text-gray-950 md:text-5xl">{t.title}</h2>
             <p className="mt-5 max-w-md text-base font-medium leading-7 text-gray-700">{t.intro}</p>
-            <a href={COMPANY.whatsappUrl} className="mt-7 inline-flex min-h-12 items-center justify-center gap-3 rounded bg-emerald-700 px-6 py-3 text-xs font-extrabold text-white transition hover:bg-emerald-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2"><MessageCircle className="h-4 w-4" /> {t.ask}</a>
+            <a href={COMPANY.whatsappUrl} className="mt-7 inline-flex min-h-12 items-center justify-center gap-3 rounded bg-emerald-700 px-6 py-3 text-xs font-extrabold text-white transition hover:bg-emerald-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2"><MessageCircle className="h-4 w-4" aria-hidden="true" /> {t.ask}</a>
           </div>
           <div className="border-y border-brand-100">
             {t.paths.map(({ cue, scope }, index) => {
               const Icon = pathIcons[index];
               return (
-                <a key={cue} href={COMPANY.whatsappUrl} className="group grid min-h-28 grid-cols-[auto_1fr_auto] items-center gap-4 border-b border-brand-100 px-1 py-5 last:border-b-0 sm:gap-6 sm:px-4">
-                  <span className="grid h-11 w-11 place-items-center rounded bg-brand-900 text-white"><Icon className="h-5 w-5" /></span>
+                <a key={cue} href={COMPANY.whatsappUrl} className="group grid min-h-28 grid-cols-[auto_1fr_auto] items-center gap-4 border-b border-brand-100 px-1 py-5 transition-colors last:border-b-0 hover:bg-brand-50 focus:outline-none focus-visible:bg-brand-50 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand-700 sm:gap-6 sm:px-4">
+                  <span className="grid h-11 w-11 place-items-center rounded bg-brand-900 text-white"><Icon className="h-5 w-5" aria-hidden="true" /></span>
                   <span><span className="block text-lg font-black text-gray-950">{cue}</span><span className="mt-1 block max-w-2xl text-sm font-medium leading-6 text-gray-700">{scope}</span></span>
                   <DirectionArrow className="h-5 w-5 text-brand-700 transition-transform group-hover:scale-110" aria-hidden="true" />
                 </a>
@@ -40,7 +40,7 @@ export default function Services({ locale }: { locale: Locale }) {
         <details className="mt-8 rounded-md bg-brand-50 px-5 py-4 text-gray-950">
           <summary className="cursor-pointer text-sm font-black focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2">{t.technicalSummary}</summary>
           <ul className="mt-5 grid gap-x-8 gap-y-3 border-t border-brand-100 pt-5 text-sm font-semibold leading-6 text-gray-700 sm:grid-cols-2">
-            {t.technical.map((service) => <li key={service} className="flex items-start gap-3"><Wrench className="mt-1 h-4 w-4 shrink-0 text-brand-800" /><span>{service}</span></li>)}
+            {t.technical.map((service) => <li key={service} className="flex items-start gap-3"><Wrench className="mt-1 h-4 w-4 shrink-0 text-brand-800" aria-hidden="true" /><span>{service}</span></li>)}
           </ul>
         </details>
       </div>
