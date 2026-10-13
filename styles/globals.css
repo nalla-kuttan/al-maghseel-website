@@ -55,6 +55,22 @@ textarea::placeholder {
   opacity: 1;
 }
 
+.reveal {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal[data-reveal="pending"] {
+  transform: translateY(20px);
+}
+
+li.reveal {
+  transition-duration: 0.4s;
+}
+
+li.reveal[data-reveal="pending"] {
+  transform: translateY(10px);
+}
+
 ::selection {
   background: #84201c;
   color: #ffffff;
@@ -72,6 +88,10 @@ textarea::placeholder {
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .reveal[data-reveal="pending"] {
+    transform: none;
   }
 }
 

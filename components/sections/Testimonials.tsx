@@ -1,23 +1,14 @@
 import React from "react";
-import { motion, useReducedMotion } from "framer-motion";
 import { ExternalLink, Star } from "lucide-react";
 import { COMPANY } from "../layout/Header";
+import Reveal from "../ui/Reveal";
 import { getCopy, Locale } from "../../lib/i18n";
-
-const EASE_OUT_EXPO = [0.16, 1, 0.3, 1] as const;
 
 export default function Testimonials({ locale }: { locale: Locale }) {
   const t = getCopy(locale).testimonials;
-  const prefersReducedMotion = useReducedMotion();
-  const fadeUp = {
-    initial: { opacity: 1, y: prefersReducedMotion ? 0 : 20 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, amount: 0.2 },
-    transition: { duration: prefersReducedMotion ? 0 : 0.7, ease: EASE_OUT_EXPO },
-  };
   return (
     <section id="testimonials" className="border-t border-brand-100 bg-white">
-      <motion.div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 md:grid-cols-[0.8fr_1.2fr] md:items-start md:gap-16 md:py-20" {...fadeUp}>
+      <Reveal className="mx-auto grid max-w-7xl gap-10 px-4 py-16 md:grid-cols-[0.8fr_1.2fr] md:items-start md:gap-16 md:py-20">
         <div>
           <h2 className="max-w-md font-heading text-3xl font-black leading-tight text-gray-950 md:text-5xl">{t.title}</h2>
           <p className="mt-4 max-w-md text-base font-medium leading-7 text-gray-700">{t.intro}</p>
@@ -40,7 +31,7 @@ export default function Testimonials({ locale }: { locale: Locale }) {
             </li>
           ))}
         </ul>
-      </motion.div>
+      </Reveal>
     </section>
   );
 }

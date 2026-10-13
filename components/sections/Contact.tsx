@@ -1,22 +1,25 @@
 import React, { useState } from "react";
+import dynamic from "next/dynamic";
 import { Mail, MapPin, MessageCircle, Phone, Send } from "lucide-react";
 import { COMPANY } from "../layout/Header";
-import BookingModal from "../ui/BookingModal";
+const loadBookingModal = () => import("../ui/BookingModal");
+const BookingModal = dynamic(loadBookingModal, { ssr: false });
 import { getCopy, Locale } from "../../lib/i18n";
 
 export default function Contact({ locale }: { locale: Locale }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalMounted, setModalMounted] = useState(false);
   const t = getCopy(locale).contact;
   return (
     <section id="contact" className="border-t border-brand-100 bg-brand-50">
-      <BookingModal locale={locale} isOpen={isModalOpen} closeModal={() => setIsModalOpen(false)} />
+      {modalMounted && <BookingModal locale={locale} isOpen={isModalOpen} closeModal={() => setIsModalOpen(false)} />}
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 lg:grid-cols-[1.08fr_0.92fr] lg:gap-16 md:py-20">
         <div>
           <h2 className="max-w-2xl font-heading text-3xl font-black leading-tight text-gray-950 md:text-5xl">{t.title}</h2>
           <p className="mt-5 max-w-2xl text-base font-medium leading-7 text-gray-700">{t.text}</p>
           <div className="mt-8 border-y border-brand-200 py-5"><div className="text-sm font-black text-brand-950">{t.include}</div><ul className="mt-4 grid gap-3 text-sm font-semibold text-gray-800 sm:grid-cols-3">{t.details.map((detail) => <li key={detail} className="flex items-start gap-2"><Send className="mt-1 h-4 w-4 shrink-0 text-brand-800" aria-hidden="true" /><span>{detail}</span></li>)}</ul></div>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <button type="button" onClick={() => setIsModalOpen(true)} className="inline-flex min-h-12 items-center justify-center gap-2 rounded bg-emerald-700 px-6 py-3 text-xs font-extrabold text-white transition hover:bg-emerald-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 active:scale-[0.99]"><MessageCircle className="h-4 w-4" aria-hidden="true" />{t.prepare}</button>
+            <button type="button" onPointerEnter={loadBookingModal} onFocus={loadBookingModal} onClick={() => { setModalMounted(true); setIsModalOpen(true); }} className="inline-flex min-h-12 items-center justify-center gap-2 rounded bg-emerald-700 px-6 py-3 text-xs font-extrabold text-white transition hover:bg-emerald-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 active:scale-[0.99]"><MessageCircle className="h-4 w-4" aria-hidden="true" />{t.prepare}</button>
             <a href={`tel:${COMPANY.phone}`} className="inline-flex min-h-12 items-center justify-center gap-2 rounded border border-brand-700 bg-white px-6 py-3 text-xs font-extrabold text-brand-950 transition hover:bg-brand-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2 active:scale-[0.99]"><Phone className="h-4 w-4" aria-hidden="true" />{t.call} <bdi>{COMPANY.displayPhone}</bdi></a>
           </div>
         </div>

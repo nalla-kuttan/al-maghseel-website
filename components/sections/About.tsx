@@ -1,24 +1,15 @@
-import Image from "next/image";
 import React from "react";
-import { motion, useReducedMotion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Building2, CalendarCheck, Home, MapPin } from "lucide-react";
 import { COMPANY } from "../layout/Header";
 import Counter from "../ui/Counter";
+import Reveal from "../ui/Reveal";
 import { getCopy, Locale } from "../../lib/i18n";
 
 const reasonIcons = [CalendarCheck, MapPin, Home, Building2];
-const EASE_OUT_EXPO = [0.16, 1, 0.3, 1] as const;
 
 export default function About({ locale }: { locale: Locale }) {
   const t = getCopy(locale).about;
   const DirectionArrow = locale === "ar" ? ArrowLeft : ArrowRight;
-  const prefersReducedMotion = useReducedMotion();
-  const fadeUp = {
-    initial: { opacity: 1, y: prefersReducedMotion ? 0 : 20 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, amount: 0.2 },
-    transition: { duration: prefersReducedMotion ? 0 : 0.7, ease: EASE_OUT_EXPO },
-  };
   return (
     <section id="about" className="bg-white">
       <div className="border-y border-brand-100 bg-brand-50">
@@ -26,9 +17,9 @@ export default function About({ locale }: { locale: Locale }) {
           {t.reasons.map(({ title, text }, index) => { const Icon = reasonIcons[index]; return <div key={title} className="flex items-center justify-center gap-3 px-4 py-4"><Icon className="h-8 w-8 shrink-0 text-brand-800" aria-hidden="true" /><div className="text-sm leading-tight"><div className="font-black text-brand-900">{title}</div><div className="font-semibold text-gray-700">{text}</div></div></div>; })}
         </div>
       </div>
-      <motion.div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 md:grid-cols-[1.08fr_0.92fr]" {...fadeUp}>
+      <Reveal className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 md:grid-cols-[1.08fr_0.92fr]">
         <div className="relative overflow-hidden rounded-md">
-          <Image src="/hvac-commercial-units.webp" alt={t.imageAlt} width={900} height={620} className="aspect-[1.55/1] w-full object-cover" />
+          <img src="/hvac-commercial-units-960.webp" srcSet="/hvac-commercial-units-640.webp 640w, /hvac-commercial-units-960.webp 960w, /hvac-commercial-units-1280.webp 1280w" sizes="(min-width: 1280px) 652px, (min-width: 768px) 52vw, calc(100vw - 2rem)" alt={t.imageAlt} width={900} height={620} loading="lazy" decoding="async" className="aspect-[1.55/1] w-full object-cover" />
           <div className="absolute bottom-8 start-8 grid h-28 w-28 place-items-center rounded-full bg-brand-900 text-center text-white shadow-xl ring-4 ring-white">
             <div><div className="text-3xl font-black"><bdi><Counter target={COMPANY.years} />+</bdi></div><div className="mt-1 text-[9px] font-semibold leading-tight">{t.yearsLabel}</div></div>
           </div>
@@ -40,7 +31,7 @@ export default function About({ locale }: { locale: Locale }) {
           <div className="mt-6 max-w-xl border-y border-brand-100 py-5 text-sm font-semibold leading-7 text-gray-800">{t.tip}</div>
           <a href={COMPANY.whatsappUrl} className="mt-8 inline-flex items-center gap-3 rounded bg-brand-900 px-6 py-4 text-xs font-extrabold text-white transition hover:bg-brand-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2">{t.cta} <DirectionArrow className="h-4 w-4" aria-hidden="true" /></a>
         </div>
-      </motion.div>
+      </Reveal>
     </section>
   );
 }

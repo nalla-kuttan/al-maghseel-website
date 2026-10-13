@@ -1,10 +1,16 @@
 import React from "react";
-import Image from "next/image";
+import Head from "next/head";
 import { ArrowLeft, ArrowRight, Clock3, Phone, MapPin, Building2, CalendarCheck } from "lucide-react";
 import { COMPANY } from "../layout/Header";
 import { getCopy, Locale } from "../../lib/i18n";
 
 const trustIcons = [Clock3, MapPin, Building2, CalendarCheck];
+const HERO_SRCSET = "/hvac-hero-rooftop-service-640.webp 640w, /hvac-hero-rooftop-service-960.webp 960w, /hvac-hero-rooftop-service-1280.webp 1280w, /hvac-hero-rooftop-service.webp 1600w";
+const DESKTOP_MEDIA = "(min-width: 768px)";
+const DESKTOP_SIZES = "53vw";
+const MOBILE_SIZES = "calc(100vw - 2rem)";
+// Each <picture> only matches its own breakpoint; the fallback is a 1px GIF so the other layout's copy is never downloaded.
+const BLANK = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
 
 export default function Hero({ locale }: { locale: Locale }) {
   const t = getCopy(locale).hero;
@@ -13,8 +19,14 @@ export default function Hero({ locale }: { locale: Locale }) {
 
   return (
     <section className="relative overflow-hidden bg-white">
+      <Head>
+        <link rel="preload" as="image" imageSrcSet={HERO_SRCSET} imageSizes={DESKTOP_SIZES} media={DESKTOP_MEDIA} fetchPriority="high" key="hero-preload" />
+      </Head>
       <div className={`absolute inset-y-0 hidden w-[53%] md:block ${isAr ? "left-0" : "right-0"}`}>
-        <Image src="/hvac-hero-rooftop-service.webp" alt={t.imageAlt} fill className="object-cover" priority />
+        <picture>
+          <source media={DESKTOP_MEDIA} srcSet={HERO_SRCSET} sizes={DESKTOP_SIZES} />
+          <img src={BLANK} alt={t.imageAlt} width={1600} height={1067} fetchPriority="high" decoding="async" className="absolute inset-0 h-full w-full object-cover" />
+        </picture>
         <div className={`absolute inset-0 ${isAr ? "bg-gradient-to-l" : "bg-gradient-to-r"} from-white via-white/35 to-transparent`} />
         <div className={`absolute inset-y-0 w-28 ${isAr ? "right-0 bg-gradient-to-l" : "left-0 bg-gradient-to-r"} from-white to-transparent`} />
       </div>
@@ -38,7 +50,12 @@ export default function Hero({ locale }: { locale: Locale }) {
           </div>
         </div>
         <div className="relative mt-10 md:mt-0">
-          <div className="relative mx-auto aspect-[4/3] w-full overflow-hidden rounded md:hidden"><Image src="/hvac-hero-rooftop-service.webp" alt={t.imageAlt} fill className="object-cover" priority /></div>
+          <div className="relative mx-auto aspect-[4/3] w-full overflow-hidden rounded md:hidden">
+            <picture>
+              <source media="(max-width: 767px)" srcSet={HERO_SRCSET} sizes={MOBILE_SIZES} />
+              <img src={BLANK} alt={t.imageAlt} width={1600} height={1067} decoding="async" className="absolute inset-0 h-full w-full object-cover" />
+            </picture>
+          </div>
           <div className={`absolute bottom-6 hidden w-60 rounded-md bg-white p-6 shadow-[0_18px_45px_rgba(36,6,6,0.18)] md:block ${isAr ? "left-5" : "right-5"}`}>
             <div className="flex gap-4">
               <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-brand-900 text-white"><Phone className="h-6 w-6" aria-hidden="true" /></div>
