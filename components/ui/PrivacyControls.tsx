@@ -1,8 +1,22 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
 const key = "almaghseel-analytics-consent";
+const gaId = "G-YZF9DTCPKB";
+// Google Consent Mode: GA always loads, but stays cookieless (anonymous pings) until the visitor accepts.
+const gaInit = `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+var granted=false;try{granted=localStorage.getItem('${key}')==='accepted';}catch(e){}
+gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:granted?'granted':'denied'});
+gtag('js',new Date());gtag('config','${gaId}');`;
+const clearGaCookies = () => {
+  const parts = location.hostname.split(".");
+  document.cookie.split("; ").map((c) => c.split("=")[0]).filter((name) => name === "_ga" || name.startsWith("_ga_")).forEach((name) => {
+    for (let i = 0; i < parts.length; i++) document.cookie = `${name}=; Max-Age=0; path=/; domain=${parts.slice(i).join(".")}`;
+    document.cookie = `${name}=; Max-Age=0; path=/`;
+  });
+};
 export default function PrivacyControls() {
   const [consent, setConsent] = useState<string | null>(null);
   const [open, setOpen] = useState(false);
@@ -11,9 +25,17 @@ export default function PrivacyControls() {
     const read = () => { try { const saved = localStorage.getItem(key); setConsent(saved); setOpen(saved !== "accepted" && saved !== "declined"); } catch { setOpen(true); } };
     read(); window.addEventListener("storage", read); return () => window.removeEventListener("storage", read);
   }, []);
+  useEffect(() => {
+    const gtag = (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag;
+    if (consent === null || !gtag) return;
+    gtag("consent", "update", { analytics_storage: consent === "accepted" ? "granted" : "denied" });
+    if (consent !== "accepted") clearGaCookies();
+  }, [consent]);
   const choose = (value: string) => { try { localStorage.setItem(key, value); } catch {} setConsent(value); setOpen(false); };
   return <>
-    {consent === "accepted" && <Analytics beforeSend={(event) => { try { return localStorage.getItem(key) === "accepted" ? { ...event, url: event.url.split("?")[0] } : null; } catch { return null; } }} />}
+    <Analytics beforeSend={(event) => ({ ...event, url: event.url.split("?")[0] })} />
+    <Script id="google-analytics" strategy="afterInteractive">{gaInit}</Script>
+    <Script src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} strategy="afterInteractive" />
     <div className="bg-white px-4 py-4 text-center pb-24 md:pb-4"><button type="button" onClick={() => setOpen(true)} className="rounded-sm text-sm text-brand-900 underline decoration-brand-300 underline-offset-4 transition-colors hover:text-brand-700 hover:decoration-brand-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2">{ar ? "خيارات الخصوصية" : "Privacy choices"}</button></div>
     {open && <aside aria-label={ar ? "خيارات ملفات الارتباط" : "Cookie and analytics choices"} dir={ar ? "rtl" : "ltr"} className="fixed bottom-[calc(5rem+env(safe-area-inset-bottom))] left-3 right-3 z-[60] max-h-[60vh] overflow-auto overscroll-contain rounded-lg border border-brand-200 bg-white p-4 shadow-xl md:bottom-5 md:left-auto md:right-5 md:max-w-md">
       <h2 className="font-bold">{ar ? "خصوصيتك" : "Your privacy"}</h2><p className="mt-2 text-sm leading-6">{ar ? "نحفظ اختيارك في هذا المتصفح. هل تسمح بتحليلات الزيارات الاختيارية لتحسين الموقع؟" : "We store your preference in this browser. May we enable optional visit analytics to improve the site?"} <Link href="/privacy/" className="underline">{ar ? "سياسة الخصوصية (بالإنجليزية)" : "Privacy policy"}</Link></p>
