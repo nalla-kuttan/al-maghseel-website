@@ -1,42 +1,46 @@
 import React from "react";
-import { COMPANY } from "./layout/Header";
 import { getCopy, Locale } from "../lib/i18n";
+import { absoluteUrl, SITE_URL } from "../lib/site";
 
-export default function SEO({ locale }: { locale: Locale }) {
+const OG_IMAGE = `${SITE_URL}/hvac-hero-rooftop-service.jpg`;
+
+/** JSON-LD structured data. "<" is escaped so copy can never close the script tag. */
+export function JsonLd({ data }: { data: object }) {
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }} />;
+}
+
+type MetaProps = { locale: Locale; title: string; description: string; ogTitle?: string; ogDescription?: string; path: string; enPath: string; arPath: string };
+
+/** Head tags shared by every indexable bilingual page. Returns an array so it can sit directly inside next/head. */
+export function pageMeta({ locale, title, description, ogTitle = title, ogDescription = description, path, enPath, arPath }: MetaProps) {
   const t = getCopy(locale);
-  const url = locale === "ar" ? "https://www.almaghseel.com/ar/" : "https://www.almaghseel.com/";
-  const language = locale === "ar" ? "ar-AE" : "en-AE";
-  const businessId = "https://www.almaghseel.com/#organization";
-  const websiteId = "https://www.almaghseel.com/#website";
-  const heroImage = "https://www.almaghseel.com/hvac-hero-rooftop-service.jpg";
-  const schema = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "HVACBusiness", "@id": businessId, name: COMPANY.name, alternateName: getCopy("ar").brand.name,
-        url: "https://www.almaghseel.com/", logo: "https://www.almaghseel.com/logo-al-maghseel.png", image: [heroImage, "https://www.almaghseel.com/logo-al-maghseel.png"],
-        description: t.seo.description, telephone: COMPANY.phone, email: COMPANY.email,
-        hasMap: COMPANY.mapsUrl,
-        address: { "@type": "PostalAddress", streetAddress: COMPANY.streetAddress, addressLocality: locale === "ar" ? "العين" : "Al Ain", addressRegion: locale === "ar" ? "أبوظبي" : "Abu Dhabi", addressCountry: "AE" },
-        areaServed: t.areas.names.map((name) => ({ "@type": "Place", name })), sameAs: [COMPANY.facebook, COMPANY.instagram], foundingDate: `${COMPANY.since}-01-01`,
-        knowsLanguage: ["ar", "en"], slogan: t.brand.tagline,
-        hasOfferCatalog: {
-          "@type": "OfferCatalog",
-          name: locale === "ar" ? "خدمات المكيفات" : "A/C services",
-          itemListElement: t.services.offerings.map((service) => ({
-            "@type": "Offer",
-            itemOffered: { "@type": "Service", name: service.name, description: service.description, provider: { "@id": businessId }, areaServed: { "@type": "City", name: locale === "ar" ? "العين" : "Al Ain" } },
-          })),
-        },
-        contactPoint: { "@type": "ContactPoint", telephone: COMPANY.phone, contactType: "customer service", availableLanguage: ["en", "ar"] },
-      },
-      { "@type": "WebSite", "@id": websiteId, url: "https://www.almaghseel.com/", name: COMPANY.name, alternateName: getCopy("ar").brand.name, publisher: { "@id": businessId }, inLanguage: ["en-AE", "ar-AE"] },
-      {
-        "@type": "WebPage", "@id": `${url}#webpage`, url, name: t.seo.title, description: t.seo.description, inLanguage: language,
-        isPartOf: { "@id": websiteId }, about: { "@id": businessId }, mainEntity: { "@id": businessId },
-        primaryImageOfPage: { "@type": "ImageObject", url: heroImage, width: 1600, height: 1067, caption: t.seo.imageAlt },
-      },
-    ],
-  };
-  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
+  const isAr = locale === "ar";
+  const url = absoluteUrl(path);
+  return [
+    <title key="title">{title}</title>,
+    <meta key="description" name="description" content={description} />,
+    <link key="canonical" rel="canonical" href={url} />,
+    <meta key="robots" name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />,
+    <meta key="og:type" property="og:type" content="website" />,
+    <meta key="og:site_name" property="og:site_name" content={t.brand.name} />,
+    <meta key="og:locale" property="og:locale" content={isAr ? "ar_AE" : "en_AE"} />,
+    <meta key="og:locale:alternate" property="og:locale:alternate" content={isAr ? "en_AE" : "ar_AE"} />,
+    <meta key="og:title" property="og:title" content={ogTitle} />,
+    <meta key="og:description" property="og:description" content={ogDescription} />,
+    <meta key="og:url" property="og:url" content={url} />,
+    <meta key="og:image" property="og:image" content={OG_IMAGE} />,
+    <meta key="og:image:width" property="og:image:width" content="1600" />,
+    <meta key="og:image:height" property="og:image:height" content="1067" />,
+    <meta key="og:image:alt" property="og:image:alt" content={t.seo.imageAlt} />,
+    <meta key="twitter:card" name="twitter:card" content="summary_large_image" />,
+    <meta key="twitter:title" name="twitter:title" content={ogTitle} />,
+    <meta key="twitter:description" name="twitter:description" content={ogDescription} />,
+    <meta key="twitter:image" name="twitter:image" content={OG_IMAGE} />,
+    <meta key="twitter:image:alt" name="twitter:image:alt" content={t.seo.imageAlt} />,
+    <link key="hreflang-en" rel="alternate" hrefLang="en-ae" href={absoluteUrl(enPath)} />,
+    <link key="hreflang-ar" rel="alternate" hrefLang="ar-ae" href={absoluteUrl(arPath)} />,
+    <link key="hreflang-default" rel="alternate" hrefLang="x-default" href={absoluteUrl(enPath)} />,
+    <link key="preconnect-wa" rel="preconnect" href="https://wa.me" />,
+    <link key="dns-wa" rel="dns-prefetch" href="https://wa.me" />,
+  ];
 }

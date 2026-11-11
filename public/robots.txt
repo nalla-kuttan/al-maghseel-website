@@ -1,3 +1,20 @@
+# Al Maghseel Central Air Conditioner Est. - https://www.almaghseel.com/
+# All public pages may be crawled and indexed.
 User-agent: *
 Allow: /
+
+# AI search and assistant crawlers are welcome, so the business can be found and cited.
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: bingbot
+Allow: /
+
 Sitemap: https://www.almaghseel.com/sitemap.xml

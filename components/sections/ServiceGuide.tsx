@@ -1,16 +1,18 @@
 import React from "react";
 import { CheckCircle2, ChevronDown } from "lucide-react";
-import { copy } from "../../lib/i18n";
+import { getCopy, Locale } from "../../lib/i18n";
+import { servicePath } from "../../lib/site";
 
-export default function ArabicSeoContent() {
-  const t = copy.ar.seoContent;
+// Plain-language summary of each service, linking to its dedicated page, followed by the FAQ.
+export default function ServiceGuide({ locale }: { locale: Locale }) {
+  const t = getCopy(locale).seoContent;
 
   return (
-    <section className="border-t border-brand-100 bg-white" aria-labelledby="arabic-service-guide-title">
+    <section className="border-t border-brand-100 bg-white" aria-labelledby="service-guide-title">
       <div className="mx-auto max-w-7xl px-4 py-14 md:py-20">
         <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-16">
           <div>
-            <h2 id="arabic-service-guide-title" className="max-w-lg font-heading text-3xl font-black leading-tight text-gray-950 md:text-5xl">
+            <h2 id="service-guide-title" className="max-w-lg font-heading text-3xl font-black leading-tight text-gray-950 md:text-5xl">
               {t.title}
             </h2>
             <p className="mt-5 max-w-xl text-base font-medium leading-8 text-gray-700">{t.intro}</p>
@@ -21,7 +23,7 @@ export default function ArabicSeoContent() {
               <article key={service.title} className="grid gap-3 border-b border-brand-100 py-6 last:border-b-0 sm:grid-cols-[2.5rem_1fr]">
                 <CheckCircle2 className="mt-1 h-6 w-6 text-brand-800" aria-hidden="true" />
                 <div>
-                  <h3 className="text-xl font-black text-gray-950">{service.title}</h3>
+                  <h3 className="text-xl font-black text-gray-950"><a href={servicePath(locale, service.slug)} className="rounded-sm underline decoration-brand-200 underline-offset-4 transition-colors hover:text-brand-800 hover:decoration-brand-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2">{service.title}</a></h3>
                   <p className="mt-2 max-w-2xl text-sm font-medium leading-7 text-gray-700">{service.text}</p>
                 </div>
               </article>
