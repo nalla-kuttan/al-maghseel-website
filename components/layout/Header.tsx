@@ -17,6 +17,7 @@ export const COMPANY = {
   phone: "+971506734821",
   displayPhone: "050 673 4821",
   whatsappDigits: "971565801921",
+  displayWhatsapp: "056 580 1921",
   whatsappUrl: "https://wa.me/message/KFSOXCXKJFEDD1",
   email: "service@almaghseel.com",
   facebook: "https://www.facebook.com/p/Al-Maghseel-Central-Air-Conditioner-Est-100076006452976/",
