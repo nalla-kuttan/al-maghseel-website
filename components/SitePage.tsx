@@ -1,10 +1,10 @@
 import Head from "next/head";
-import SEO from "./SEO";
+import { JsonLd, pageMeta } from "./SEO";
 import Header from "./layout/Header";
 import Footer from "./layout/Footer";
 import Hero from "./sections/Hero";
 import Services from "./sections/Services";
-import ArabicSeoContent from "./sections/ArabicSeoContent";
+import ServiceGuide from "./sections/ServiceGuide";
 import About from "./sections/About";
 import ServicePromise from "./sections/ServicePromise";
 import ServiceAreas from "./sections/ServiceAreas";
@@ -12,23 +12,19 @@ import Testimonials from "./sections/Testimonials";
 import Contact from "./sections/Contact";
 import MobileCallBar from "./ui/MobileCallBar";
 import { getCopy, Locale } from "../lib/i18n";
+import { homeSchema } from "../lib/schema";
+import { homePath } from "../lib/site";
 
 export default function SitePage({ locale }: { locale: Locale }) {
   const t = getCopy(locale);
   const isAr = locale === "ar";
-  const canonical = isAr ? "https://www.almaghseel.com/ar/" : "https://www.almaghseel.com/";
   return <>
-    <Head>
-      <title>{t.seo.title}</title><meta name="description" content={t.seo.description} /><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="canonical" href={canonical} /><meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" /><meta name="theme-color" content="#7f1d1d" />
-      <meta property="og:type" content="website" /><meta property="og:site_name" content={t.brand.name} /><meta property="og:locale" content={isAr ? "ar_AE" : "en_AE"} /><meta property="og:locale:alternate" content={isAr ? "en_AE" : "ar_AE"} /><meta property="og:title" content={t.seo.ogTitle} /><meta property="og:description" content={t.seo.ogDescription} /><meta property="og:url" content={canonical} /><meta property="og:image" content="https://www.almaghseel.com/hvac-hero-rooftop-service.jpg" /><meta property="og:image:width" content="1600" /><meta property="og:image:height" content="1067" /><meta property="og:image:alt" content={t.seo.imageAlt} />
-      <meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content={t.seo.ogTitle} /><meta name="twitter:description" content={t.seo.ogDescription} /><meta name="twitter:image" content="https://www.almaghseel.com/hvac-hero-rooftop-service.jpg" /><meta name="twitter:image:alt" content={t.seo.imageAlt} />
-      <link rel="alternate" hrefLang="en-ae" href="https://www.almaghseel.com/" /><link rel="alternate" hrefLang="ar-ae" href="https://www.almaghseel.com/ar/" /><link rel="alternate" hrefLang="x-default" href="https://www.almaghseel.com/" /><link rel="preconnect" href="https://wa.me" /><link rel="dns-prefetch" href="https://wa.me" />
-    </Head>
+    <Head>{pageMeta({ locale, title: t.seo.title, description: t.seo.description, ogTitle: t.seo.ogTitle, ogDescription: t.seo.ogDescription, path: homePath(locale), enPath: "/", arPath: "/ar/" })}</Head>
     <div className={`text-gray-900 ${isAr ? "arabic-site" : ""}`} lang={isAr ? "ar-AE" : "en-AE"} dir={isAr ? "rtl" : "ltr"}>
       <a href="#main-content" className="sr-only z-[90] rounded bg-brand-900 px-4 py-3 text-sm font-extrabold text-white focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-200">{t.header.skip}</a>
-      <SEO locale={locale} /><Header locale={locale} />
+      <JsonLd data={homeSchema(locale)} /><Header locale={locale} />
       <main id="main-content" tabIndex={-1} className="focus:outline-none">
-        <Hero locale={locale} /><Services locale={locale} />{isAr && <ArabicSeoContent />}<About locale={locale} /><ServicePromise locale={locale} /><ServiceAreas locale={locale} /><Testimonials locale={locale} /><Contact locale={locale} />
+        <Hero locale={locale} /><Services locale={locale} /><ServiceGuide locale={locale} /><About locale={locale} /><ServicePromise locale={locale} /><ServiceAreas locale={locale} /><Testimonials locale={locale} /><Contact locale={locale} />
       </main>
       <Footer locale={locale} /><MobileCallBar locale={locale} />
     </div>

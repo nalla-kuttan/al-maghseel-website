@@ -9,12 +9,12 @@
     "icons": [
         {
             "src": "/logo-al-maghseel.png",
-            "sizes": "192x192",
+            "sizes": "984x982",
             "type": "image/png"
         },
         {
-            "src": "/logo-al-maghseel.png",
-            "sizes": "512x512",
+            "src": "/apple-touch-icon.png",
+            "sizes": "180x180",
             "type": "image/png"
         }
     ]

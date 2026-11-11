@@ -2,16 +2,17 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { Languages, Mail, MapPin, Menu, MessageCircle, Phone, X } from "lucide-react";
 import { getCopy, Locale } from "../../lib/i18n";
+import { homePath } from "../../lib/site";
 
 export const COMPANY = {
   name: "Al Maghseel Central Air Conditioner Est.",
   tagline: "Supply & Installation · A/C Service",
   city: "Al Ain, Abu Dhabi",
   streetAddress: "32 Al Wakalat 7 St, Industrial Area, Al Aras",
-  address: "32 Al Wakalat 7 St, Industrial Area, Al Aras, Abu Dhabi, UAE",
+  address: "32 Al Wakalat 7 St, Industrial Area, Al Aras, Al Ain, Abu Dhabi, UAE",
   mapsUrl: "https://maps.app.goo.gl/d7yFxW5A99gehHrK7",
   region: "UAE coverage by confirmation",
-  years: 19,
+  years: new Date().getFullYear() - 2006,
   since: 2006,
   phone: "+971506734821",
   displayPhone: "050 673 4821",
@@ -19,13 +20,16 @@ export const COMPANY = {
   whatsappUrl: "https://wa.me/message/KFSOXCXKJFEDD1",
   email: "service@almaghseel.com",
   facebook: "https://www.facebook.com/p/Al-Maghseel-Central-Air-Conditioner-Est-100076006452976/",
-  instagram: "https://www.instagram.com/maghseel/?hl=am-et",
+  instagram: "https://www.instagram.com/maghseel/",
 };
 
-export default function Header({ locale }: { locale: Locale }) {
+// `onHome` is false on service pages, where the section links must point back to the home page.
+export default function Header({ locale, onHome = true }: { locale: Locale; onHome?: boolean }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const t = getCopy(locale);
   const whatsappHref = COMPANY.whatsappUrl;
+  const home = homePath(locale);
+  const navHref = (href: string) => (onHome ? href : href === "#" ? home : `${home}${href}`);
 
   return (
     <header className="sticky top-0 z-40 w-full bg-white shadow-[0_8px_30px_rgba(64,16,16,0.08)]">
@@ -43,7 +47,7 @@ export default function Header({ locale }: { locale: Locale }) {
         </div>
       </div>
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:py-4">
-        <a href={locale === "ar" ? "/ar/" : "/"} className="flex items-center gap-3">
+        <a href={home} className="flex items-center gap-3">
           <Image src="/logo.webp" alt={t.header.logoAlt} width={64} height={64} className="object-contain" priority />
           <div className="leading-tight">
             <div className="max-w-[220px] text-sm font-extrabold text-brand-950 md:text-base">{t.brand.shortName}</div>
@@ -52,7 +56,7 @@ export default function Header({ locale }: { locale: Locale }) {
         </a>
         <nav className="hidden items-center gap-7 text-[13px] font-bold text-gray-900 lg:flex" aria-label={locale === "ar" ? "التنقل الرئيسي" : "Primary navigation"}>
           {t.header.nav.map(([label, href]) => (
-            <a key={label} href={href} className="rounded-sm transition hover:text-brand-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2">{label}</a>
+            <a key={label} href={navHref(href)} className="rounded-sm transition hover:text-brand-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2">{label}</a>
           ))}
         </nav>
         <div className="flex items-center gap-2 md:gap-3">
@@ -70,7 +74,7 @@ export default function Header({ locale }: { locale: Locale }) {
       {isMenuOpen && (
         <div id="mobile-navigation" className="border-t border-brand-100 bg-white lg:hidden">
           <nav className="mx-auto grid max-w-7xl gap-1 px-4 py-3 text-sm font-extrabold text-gray-950">
-            {t.header.nav.map(([label, href]) => <a key={label} href={href} onClick={() => setIsMenuOpen(false)} className="rounded px-3 py-3 transition hover:bg-brand-50 hover:text-brand-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700">{label}</a>)}
+            {t.header.nav.map(([label, href]) => <a key={label} href={navHref(href)} onClick={() => setIsMenuOpen(false)} className="rounded px-3 py-3 transition hover:bg-brand-50 hover:text-brand-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700">{label}</a>)}
           </nav>
           <div className="mx-auto grid max-w-7xl grid-cols-2 gap-3 px-4 pb-4">
             <a href={`tel:${COMPANY.phone}`} onClick={() => setIsMenuOpen(false)} className="inline-flex min-h-12 items-center justify-center gap-2 rounded bg-brand-900 px-4 py-3 text-xs font-extrabold text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2"><Phone className="h-4 w-4" aria-hidden="true" /> {t.header.call}</a>

@@ -5,8 +5,8 @@ export const isArabic = (locale: Locale) => locale === "ar";
 export const copy = {
   en: {
     seo: {
-      title: "AC Supply, Installation, Repair & Maintenance in Al Ain | Al Maghseel",
-      description: "A/C unit supply and installation, repair and maintenance based in Al Ain. Contact Al Maghseel to discuss the system you need or describe an existing fault.",
+      title: "AC Installation, Repair & Maintenance in Al Ain | Al Maghseel",
+      description: "AC supply and installation, repair and maintenance in Al Ain since 2006. Call or WhatsApp Al Maghseel to discuss a new system or describe a fault.",
       ogTitle: "AC Supply & Installation in Al Ain | Al Maghseel",
       ogDescription: "Supply and installation of new A/C systems, plus repair and maintenance from an established Al Ain service business.",
       imageAlt: "Al Maghseel — AC repair and HVAC services in Al Ain, UAE",
@@ -69,6 +69,42 @@ export const copy = {
         { name: "A/C water-leak repair", description: "Drain clearing, tray and hose inspection, seals and indoor-unit water issues." },
         { name: "A/C supply and installation", description: "Supply of a suitable unit, mounting, piping, wiring, testing and commissioning." },
         { name: "Planned A/C maintenance", description: "Cleaning, inspection and scheduled support for homes and commercial properties." },
+      ],
+    },
+    seoContent: {
+      title: "AC services in Al Ain for homes and businesses",
+      intro: "Al Maghseel supplies and installs new air conditioning systems, and inspects, repairs and maintains existing ones, from its base in Al Ain.",
+      services: [
+        {
+          slug: "ac-repair-al-ain",
+          title: "AC repair in Al Ain",
+          text: "Inspection when an A/C is cooling weakly or has stopped, is leaking water, making noise or losing airflow, including thermostat, compressor and electrical faults.",
+        },
+        {
+          slug: "ac-maintenance-al-ain",
+          title: "AC maintenance and cleaning",
+          text: "Cleaning and inspection of central and split units, covering filters, condenser coils, drain lines, fans and internal parts according to the condition of the unit.",
+        },
+        {
+          slug: "ac-installation-al-ain",
+          title: "Central and split AC supply and installation",
+          text: "Supply of a suitable unit with mounting, piping, wiring, testing and commissioning for homes, villas, shops and workplaces.",
+        },
+      ],
+      faqTitle: "Common questions about A/C service",
+      faqs: [
+        {
+          question: "What details do you need to arrange an A/C technician visit?",
+          answer: "Send your area, building type, A/C type and a description of the fault. A photo of the unit, its model number and the number of rooms help the team prepare more accurately.",
+        },
+        {
+          question: "Is A/C service available outside Al Ain?",
+          answer: "The team is based in Al Ain and accepts requests from across the Emirates. Visit availability and timing are confirmed for your location before a technician is dispatched.",
+        },
+        {
+          question: "Is the repair agreed before work starts?",
+          answer: "The technician inspects the cause of the problem first, then explains the proposed next step before any major repair or parts replacement.",
+        },
       ],
     },
     about: {
@@ -150,6 +186,12 @@ export const copy = {
       rights: "All rights reserved.",
     },
     mobile: { call: "Call Now", whatsapp: "WhatsApp Quote" },
+    servicePage: {
+      home: "Home", breadcrumb: "Breadcrumb",
+      faqTitle: "Frequently asked questions", relatedTitle: "Other A/C services in Al Ain", relatedText: "Al Maghseel handles the full life of an air conditioning system from one Al Ain base.",
+      areasLink: "See all service locations", contactTitle: "Talk to the A/C team in Al Ain",
+      contactText: "Phone and WhatsApp are the quickest routes. Share your area and what you need; the team confirms availability before a visit is arranged.",
+    },
   },
   ar: {
     seo: {
@@ -213,14 +255,17 @@ export const copy = {
       intro: "توفر مؤسسة المغسيل خدمات توريد وتركيب أنظمة التكييف الجديدة، إضافة إلى الفحص والتصليح والصيانة من مقرها في مدينة العين.",
       services: [
         {
+          slug: "ac-repair-al-ain",
           title: "تصليح المكيفات في العين",
           text: "فحص المكيف عند ضعف التبريد أو توقفه، وتسرب المياه، والضوضاء، وضعف تدفق الهواء، وأعطال الثرموستات والضاغط والتوصيلات الكهربائية.",
         },
         {
+          slug: "ac-maintenance-al-ain",
           title: "صيانة وتنظيف المكيفات",
           text: "تنظيف وفحص وحدات التكييف المركزية والسبليت، بما يشمل الفلاتر وملفات المكثف ومجاري التصريف والمراوح والأجزاء الداخلية حسب حالة الجهاز.",
         },
         {
+          slug: "ac-installation-al-ain",
           title: "توريد وتركيب المكيفات المركزية والسبليت",
           text: "توريد الوحدة المناسبة وتركيبها مع التمديدات والتوصيلات والاختبار والتشغيل للمنازل والفلل والمحلات ومواقع العمل.",
         },
@@ -300,6 +345,12 @@ export const copy = {
       contact: "تواصل معنا", urgent: "اتصل للدعم العاجل", whatsapp: "عرض سعر عبر واتساب", email: "البريد الإلكتروني", office: "المكتب الرئيسي", rights: "جميع الحقوق محفوظة.",
     },
     mobile: { call: "اتصل الآن", whatsapp: "عرض سعر عبر واتساب" },
+    servicePage: {
+      home: "الرئيسية", breadcrumb: "مسار التنقل",
+      faqTitle: "أسئلة شائعة", relatedTitle: "خدمات مكيفات أخرى في العين", relatedText: "تتولى مؤسسة المغسيل خدمة نظام التكييف في جميع مراحله من مقر واحد في العين.",
+      areasLink: "اطّلع على جميع مناطق الخدمة", contactTitle: "تواصل مع فريق المكيفات في العين",
+      contactText: "الهاتف وواتساب هما الأسرع. أرسل منطقتك وما تحتاج إليه، وسيؤكد الفريق توفر الخدمة قبل ترتيب الزيارة.",
+    },
   },
 } as const;
 
