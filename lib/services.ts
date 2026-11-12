@@ -30,7 +30,8 @@ const en: readonly ServiceContent[] = [
     intro: "When an air conditioner stops cooling, leaks water or keeps tripping, the cause is rarely obvious from the outside. Al Maghseel Central Air Conditioner Est. has diagnosed and repaired split and central A/C systems from its Al Ain base since 2006, for homes, villas, shops and workplaces.",
     sections: [
       {
-        title: "A/C problems we repair",
+        title: "What A/C problems does Al Maghseel repair?",
+        text: "Al Maghseel repairs split and central air conditioners that are not cooling, leaking water, noisy, tripping the breaker or losing refrigerant.",
         items: [
           "A/C not cooling or cooling weakly: airflow, refrigerant, thermostat and compressor checks.",
           "Water leaking from the indoor unit: blocked drain line, drain tray, hoses and seals.",
@@ -41,7 +42,8 @@ const en: readonly ServiceContent[] = [
         ],
       },
       {
-        title: "Parts and components we work on",
+        title: "Which A/C parts can be repaired or replaced?",
+        text: "The team works on the compressor, control board, capacitor, contactor, fan motor, thermostat, coils and piping.",
         items: [
           "Compressor inspection and repair",
           "PCB and control boards",
@@ -55,7 +57,8 @@ const en: readonly ServiceContent[] = [
         ],
       },
       {
-        title: "How an A/C repair visit works",
+        title: "How does an A/C repair visit work?",
+        text: "You describe the fault, the team confirms a visit window, and the technician diagnoses the unit before any major repair.",
         items: [
           "Share the symptom: send your location, building type and what the A/C is doing.",
           "Confirm availability: we confirm the visit window and whether any known parts may be needed.",
@@ -63,8 +66,8 @@ const en: readonly ServiceContent[] = [
         ],
       },
       {
-        title: "Where we repair",
-        text: "The team is based at 32 Al Wakalat 7 St in the Al Ain Industrial Area. Repair requests are accepted from Al Ain and from other emirates; visit availability is confirmed for your location before a technician is dispatched.",
+        title: "Where is AC repair available?",
+        text: "AC repair is available in Al Ain, where the team is based at 32 Al Wakalat 7 St in the Industrial Area. Requests from other emirates are also accepted; visit availability is confirmed for your location before a technician is dispatched.",
       },
     ],
     faqs: [
@@ -85,7 +88,8 @@ const en: readonly ServiceContent[] = [
     intro: "Regular maintenance keeps an air conditioner cooling properly through the Al Ain summer and catches small faults before they become breakdowns. Al Maghseel provides cleaning, inspection and scheduled support for split and central A/C in homes, villas and commercial properties.",
     sections: [
       {
-        title: "What an A/C maintenance visit covers",
+        title: "What does an A/C maintenance visit cover?",
+        text: "A maintenance visit covers cleaning and inspection of the filters, coil, drain, fans and electrical parts.",
         items: [
           "Filter cleaning",
           "Condenser coil cleaning",
@@ -98,7 +102,8 @@ const en: readonly ServiceContent[] = [
         note: "The exact work depends on the type and condition of the unit.",
       },
       {
-        title: "Signs your A/C is due for a service",
+        title: "How do I know my A/C needs a service?",
+        text: "An A/C is due for a service when it cools more slowly, blows weakly, drips water or gets louder.",
         items: [
           "The room takes longer to cool than it used to.",
           "Airflow from the indoor unit is weak.",
@@ -108,11 +113,12 @@ const en: readonly ServiceContent[] = [
         ],
       },
       {
-        title: "Homes and commercial properties",
-        text: "Maintenance is available for homes and villas as well as shops and workplaces, including scheduled support for commercial properties with several units. Tell us how many units you have and what type they are so the visit can be planned properly.",
+        title: "Is maintenance available for homes and commercial properties?",
+        text: "Yes. Maintenance is available for homes and villas as well as shops and workplaces, including scheduled support for commercial properties with several units. Tell us how many units you have and what type they are so the visit can be planned properly.",
       },
       {
-        title: "How to arrange maintenance",
+        title: "How do I arrange AC maintenance in Al Ain?",
+        text: "Call or send a WhatsApp message with your property and unit details, and the team confirms a visit window.",
         items: [
           "Send your area, building type, and the number and type of A/C units.",
           "We confirm availability and a visit window for your location.",
@@ -122,8 +128,6 @@ const en: readonly ServiceContent[] = [
     ],
     faqs: [
       { question: "How often should an A/C be serviced in the UAE?", answer: "Because air conditioners in the UAE run for most of the year, a service at least once a year is generally recommended, ideally before summer. Units in dusty locations or in continuous commercial use often benefit from more frequent cleaning." },
-      { question: "What is included in AC maintenance?", answer: "A maintenance visit covers cleaning and inspection of the filters, condenser coil, drain line and tray, fans and blower, plus thermostat and electrical checks. The exact work depends on the type and condition of the unit." },
-      { question: "Do you maintain A/C in commercial properties?", answer: "Yes. Cleaning, inspection and scheduled support are available for homes and for commercial properties. Share the number and type of units and the location to arrange it." },
       { question: "Is AC maintenance available outside Al Ain?", answer: "The team is based in Al Ain and accepts requests from other emirates. Availability and the visit window are confirmed for your location before a technician is dispatched." },
     ],
   },
@@ -137,7 +141,8 @@ const en: readonly ServiceContent[] = [
     intro: "Al Maghseel supplies and installs new split and central air conditioning systems for homes, villas, shops and workplaces. One team supplies a suitable unit, installs it and commissions it, working from its Al Ain base since 2006.",
     sections: [
       {
-        title: "What A/C installation includes",
+        title: "What does A/C installation include?",
+        text: "Installation includes supplying the unit, mounting it, running the piping and wiring, and testing it before handover.",
         items: [
           "Supply of a unit suited to the space",
           "Mounting of the indoor and outdoor units",
@@ -147,27 +152,28 @@ const en: readonly ServiceContent[] = [
         ],
       },
       {
-        title: "Split and central A/C systems",
-        text: "The team installs split units for individual rooms and central air conditioning for larger homes, villas and commercial spaces. Tell us about the property and the team will discuss the system that fits it.",
+        title: "Do you install both split and central A/C?",
+        text: "Yes. The team installs split units for individual rooms and central air conditioning for larger homes, villas and commercial spaces. Tell us about the property and the team will discuss the system that fits it.",
       },
       {
-        title: "What to send for a quote",
+        title: "What should I send to get an installation quote?",
+        text: "Send your area, building type, room count and sizes, and whether an existing A/C is being replaced.",
         items: [
           "Your area and building type (apartment, villa, shop, workplace).",
           "The number of rooms and their approximate sizes.",
           "Whether this is a new installation or replaces an existing A/C.",
           "Photos of the rooms and the outdoor-unit location, if available.",
         ],
+        note: "The scope, price, parts and timing are confirmed with you directly before any work is agreed.",
       },
       {
-        title: "After installation",
+        title: "Who services the A/C after installation?",
         text: "The same team handles maintenance and repair, so the system can be serviced by the people who installed it.",
       },
     ],
     faqs: [
       { question: "Do you supply the A/C unit as well as install it?", answer: "Yes. Al Maghseel supplies a suitable unit and carries out the mounting, piping, wiring, testing and commissioning." },
       { question: "How do I know what size A/C I need?", answer: "The right capacity depends on the room size, sun exposure, insulation and how the space is used. Share the number of rooms and their approximate sizes and the team will recommend a suitable unit." },
-      { question: "What do you need to prepare a quote?", answer: "Send your area, building type, the number and size of rooms, and whether you are replacing an existing system. Photos help. The scope, price, parts and timing are confirmed with you directly before any work is agreed." },
       { question: "Do you install A/C for shops and offices?", answer: "Yes. Supply and installation is available for homes and villas as well as shops and workplaces." },
     ],
   },
@@ -184,7 +190,8 @@ const ar: readonly ServiceContent[] = [
     intro: "عندما يتوقف المكيف عن التبريد أو يسرّب الماء أو يفصل الكهرباء، لا يكون السبب واضحاً من الخارج غالباً. تشخّص مؤسسة المغسيل للمكيفات المركزية أعطال مكيفات السبليت والمركزي وتصلحها من مقرها في العين منذ عام 2006، للمنازل والفلل والمحلات ومواقع العمل.",
     sections: [
       {
-        title: "أعطال المكيفات التي نصلحها",
+        title: "ما أعطال المكيفات التي تصلحها مؤسسة المغسيل؟",
+        text: "تصلح مؤسسة المغسيل مكيفات السبليت والمركزي التي لا تبرد أو تسرّب الماء أو تصدر ضوضاء أو تفصل القاطع أو تفقد غاز التبريد.",
         items: [
           "المكيف لا يبرد أو تبريده ضعيف: فحص تدفق الهواء وغاز التبريد والثرموستات والضاغط.",
           "تسرب المياه من الوحدة الداخلية: انسداد مجرى التصريف، وفحص الصينية والخراطيم والعوازل.",
@@ -195,7 +202,8 @@ const ar: readonly ServiceContent[] = [
         ],
       },
       {
-        title: "القطع والمكونات التي نعمل عليها",
+        title: "ما قطع المكيف التي يمكن إصلاحها أو استبدالها؟",
+        text: "يعمل الفريق على الضاغط ولوحة التحكم والمكثف والكونتاكتور ومحرك المروحة والثرموستات والملفات والأنابيب.",
         items: [
           "فحص الضاغط وإصلاحه",
           "لوحة الدوائر ولوحة التحكم",
@@ -209,7 +217,8 @@ const ar: readonly ServiceContent[] = [
         ],
       },
       {
-        title: "كيف تتم زيارة التصليح؟",
+        title: "كيف تتم زيارة تصليح المكيف؟",
+        text: "تصف العطل، فيؤكد الفريق موعد الزيارة، ثم يشخّص الفني الجهاز قبل أي إصلاح رئيسي.",
         items: [
           "صف المشكلة: أرسل موقعك ونوع المبنى وما يحدث في المكيف.",
           "تأكيد الموعد: نؤكد وقت الزيارة وما إذا كانت هناك قطع معروفة قد تكون مطلوبة.",
@@ -217,8 +226,8 @@ const ar: readonly ServiceContent[] = [
         ],
       },
       {
-        title: "أين نقدم خدمة التصليح؟",
-        text: "يقع مقر الفريق في المنطقة الصناعية بمدينة العين. نستقبل طلبات التصليح من العين ومن إمارات الدولة الأخرى، ويتم تأكيد توفر الزيارة حسب موقعك قبل إرسال الفني.",
+        title: "أين تتوفر خدمة تصليح المكيفات؟",
+        text: "تتوفر خدمة تصليح المكيفات في مدينة العين، حيث يقع مقر الفريق في المنطقة الصناعية. نستقبل كذلك الطلبات من إمارات الدولة الأخرى، ويتم تأكيد توفر الزيارة حسب موقعك قبل إرسال الفني.",
       },
     ],
     faqs: [
@@ -240,6 +249,7 @@ const ar: readonly ServiceContent[] = [
     sections: [
       {
         title: "ماذا تشمل زيارة صيانة المكيف؟",
+        text: "تشمل زيارة الصيانة تنظيف وفحص الفلاتر والملف ومجرى التصريف والمراوح والأجزاء الكهربائية.",
         items: [
           "تنظيف الفلاتر",
           "تنظيف ملف المكثف",
@@ -252,7 +262,8 @@ const ar: readonly ServiceContent[] = [
         note: "يختلف العمل المطلوب حسب نوع الجهاز وحالته.",
       },
       {
-        title: "علامات تدل على أن المكيف يحتاج إلى صيانة",
+        title: "كيف أعرف أن المكيف يحتاج إلى صيانة؟",
+        text: "يحتاج المكيف إلى صيانة عندما يبرد ببطء أو يضعف تدفق هوائه أو يسرّب الماء أو يرتفع صوته.",
         items: [
           "الغرفة تحتاج إلى وقت أطول لتبرد.",
           "تدفق الهواء من الوحدة الداخلية ضعيف.",
@@ -262,11 +273,12 @@ const ar: readonly ServiceContent[] = [
         ],
       },
       {
-        title: "للمنازل والمنشآت التجارية",
-        text: "تتوفر الصيانة للمنازل والفلل وكذلك للمحلات ومواقع العمل، بما يشمل الصيانة المجدولة للعقارات التجارية التي تضم عدة وحدات. أخبرنا بعدد الوحدات ونوعها لنرتب الزيارة بالشكل المناسب.",
+        title: "هل تتوفر الصيانة للمنازل والمنشآت التجارية؟",
+        text: "نعم. تتوفر الصيانة للمنازل والفلل وكذلك للمحلات ومواقع العمل، بما يشمل الصيانة المجدولة للعقارات التجارية التي تضم عدة وحدات. أخبرنا بعدد الوحدات ونوعها لنرتب الزيارة بالشكل المناسب.",
       },
       {
-        title: "كيف تطلب الصيانة؟",
+        title: "كيف أطلب صيانة مكيفات في العين؟",
+        text: "اتصل أو أرسل رسالة واتساب تتضمن تفاصيل العقار والوحدات، وسيؤكد الفريق موعد الزيارة.",
         items: [
           "أرسل منطقتك ونوع المبنى وعدد وحدات التكييف ونوعها.",
           "نؤكد توفر الخدمة وموعد الزيارة حسب موقعك.",
@@ -276,8 +288,6 @@ const ar: readonly ServiceContent[] = [
     ],
     faqs: [
       { question: "كم مرة يحتاج المكيف إلى صيانة في الإمارات؟", answer: "لأن المكيفات في الإمارات تعمل معظم أشهر السنة، يُنصح عموماً بالصيانة مرة واحدة على الأقل سنوياً، ويفضّل قبل الصيف. الأجهزة في الأماكن المعرضة للغبار أو التي تعمل باستمرار في المنشآت التجارية قد تحتاج إلى تنظيف أكثر تكراراً." },
-      { question: "ماذا تشمل صيانة المكيفات؟", answer: "تشمل الزيارة تنظيف وفحص الفلاتر وملف المكثف ومجرى التصريف والصينية والمراوح والمنفاخ، مع فحص الثرموستات والتوصيلات الكهربائية. يختلف العمل المطلوب حسب نوع الجهاز وحالته." },
-      { question: "هل تقدمون صيانة مكيفات للمنشآت التجارية؟", answer: "نعم. تتوفر خدمات التنظيف والفحص والصيانة المجدولة للمنازل وللعقارات التجارية. أرسل عدد الوحدات ونوعها والموقع لترتيب الزيارة." },
       { question: "هل تتوفر صيانة المكيفات خارج مدينة العين؟", answer: "يقع مقر الفريق في العين ويستقبل الطلبات من إمارات الدولة الأخرى. يتم تأكيد توفر الزيارة وموعدها حسب موقعك قبل إرسال الفني." },
     ],
   },
@@ -292,6 +302,7 @@ const ar: readonly ServiceContent[] = [
     sections: [
       {
         title: "ماذا يشمل تركيب المكيف؟",
+        text: "يشمل التركيب توريد الوحدة وتثبيتها وتنفيذ التمديدات والتوصيلات واختبارها قبل التسليم.",
         items: [
           "توريد وحدة مناسبة للمساحة",
           "تثبيت الوحدتين الداخلية والخارجية",
@@ -301,27 +312,28 @@ const ar: readonly ServiceContent[] = [
         ],
       },
       {
-        title: "مكيفات سبليت ومكيفات مركزية",
-        text: "يركّب الفريق مكيفات السبليت للغرف المنفردة وأنظمة التكييف المركزي للمنازل الكبيرة والفلل والمساحات التجارية. أخبرنا عن العقار وسيناقش الفريق معك النظام المناسب له.",
+        title: "هل تركّبون مكيفات السبليت والمركزي؟",
+        text: "نعم. يركّب الفريق مكيفات السبليت للغرف المنفردة وأنظمة التكييف المركزي للمنازل الكبيرة والفلل والمساحات التجارية. أخبرنا عن العقار وسيناقش الفريق معك النظام المناسب له.",
       },
       {
-        title: "ما المعلومات المطلوبة لعرض السعر؟",
+        title: "ما المعلومات المطلوبة للحصول على عرض سعر التركيب؟",
+        text: "أرسل منطقتك ونوع المبنى وعدد الغرف ومساحاتها، وهل ستستبدل مكيفاً قائماً.",
         items: [
           "منطقتك ونوع المبنى (شقة، فيلا، محل، موقع عمل).",
           "عدد الغرف ومساحاتها التقريبية.",
           "هل التركيب جديد أم بديل لمكيف قائم.",
           "صور للغرف ولموقع الوحدة الخارجية إن توفرت.",
         ],
+        note: "يتم تأكيد نطاق العمل والسعر والقطع والموعد معك مباشرة قبل الاتفاق على أي عمل.",
       },
       {
-        title: "بعد التركيب",
+        title: "من يتولى صيانة المكيف بعد التركيب؟",
         text: "يتولى الفريق نفسه أعمال الصيانة والتصليح، فيمكن خدمة النظام لدى من قام بتركيبه.",
       },
     ],
     faqs: [
       { question: "هل تورّدون المكيف مع التركيب؟", answer: "نعم. تورّد مؤسسة المغسيل الوحدة المناسبة وتنفذ التثبيت والتمديدات والتوصيلات والاختبار والتشغيل." },
       { question: "كيف أعرف حجم المكيف المناسب؟", answer: "تعتمد القدرة المناسبة على مساحة الغرفة وتعرضها للشمس والعزل وطريقة استخدام المكان. أرسل عدد الغرف ومساحاتها التقريبية وسيقترح الفريق الوحدة المناسبة." },
-      { question: "ما المطلوب لإعداد عرض السعر؟", answer: "أرسل منطقتك ونوع المبنى وعدد الغرف ومساحاتها، وهل ستستبدل نظاماً قائماً. الصور تساعد. يتم تأكيد نطاق العمل والسعر والقطع والموعد معك مباشرة قبل الاتفاق على أي عمل." },
       { question: "هل تركّبون مكيفات للمحلات والمكاتب؟", answer: "نعم. تتوفر خدمة التوريد والتركيب للمنازل والفلل وكذلك للمحلات ومواقع العمل." },
     ],
   },

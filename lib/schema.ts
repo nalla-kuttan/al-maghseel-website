@@ -87,7 +87,21 @@ export function serviceSchema(locale: Locale, service: ServiceContent) {
           { "@type": "ListItem", position: 2, name: service.h1, item: url },
         ],
       },
-      faqNode(url, locale, service.faqs),
+      // Section headings are questions answered in their first sentence, so they are marked up with the FAQ.
+      faqNode(url, locale, [...service.sections.filter((section) => section.text).map((section) => ({ question: section.title, answer: section.text })), ...service.faqs]),
+    ],
+  };
+}
+
+/** Structured data for single-language utility pages (privacy, terms). */
+export function utilitySchema(path: string, title: string, description: string) {
+  const url = absoluteUrl(path);
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      businessNode("en"), websiteNode(),
+      ...getServices("en").map((service) => serviceNode("en", service)),
+      { "@type": "WebPage", "@id": `${url}#webpage`, url, name: title, description, inLanguage: "en-AE", isPartOf: { "@id": WEBSITE_ID }, about: { "@id": BUSINESS_ID } },
     ],
   };
 }

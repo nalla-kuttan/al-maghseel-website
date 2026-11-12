@@ -56,7 +56,7 @@ export default function ServicePage({ locale, slug }: { locale: Locale; slug: st
                 <h2 className="max-w-md font-heading text-2xl font-black leading-tight text-gray-950 md:text-4xl">{section.title}</h2>
                 <div>
                   {section.text && <p className="max-w-2xl text-base font-medium leading-7 text-gray-700">{section.text}</p>}
-                  {section.items && <ul className="grid gap-3 text-sm font-semibold leading-6 text-gray-800">{section.items.map((item) => <li key={item} className="flex items-start gap-3"><CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-brand-800" aria-hidden="true" /><span>{item}</span></li>)}</ul>}
+                  {section.items && <ul className={`${section.text ? "mt-5 " : ""}grid gap-3 text-sm font-semibold leading-6 text-gray-800`}>{section.items.map((item) => <li key={item} className="flex items-start gap-3"><CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-brand-800" aria-hidden="true" /><span>{item}</span></li>)}</ul>}
                   {section.note && <p className="mt-5 max-w-2xl text-sm font-medium leading-6 text-gray-700">{section.note}</p>}
                 </div>
               </div>

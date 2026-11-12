@@ -10,7 +10,8 @@
     "prebuild": "node scripts/generate-sitemap.mjs",
     "build": "next build",
     "start": "serve out",
-    "export": "next build"
+    "export": "next build",
+    "indexnow": "node scripts/indexnow.mjs"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.9",
